@@ -50,7 +50,7 @@ class PT_Channels_Ordered {
 		}
 
 		if ( empty( $channels ) ) {
-			return '<p class="pt-no-videos">' . esc_html__( 'Keine Kanäle angegeben. Bitte verwenden Sie das channels-Attribut oder konfigurieren Sie Standard-Kanäle in den Einstellungen.', 'peertube-video-manager' ) . '</p>';
+			return '<p class="pt-no-videos">' . esc_html__( 'No channels specified. Please use the channels attribute or configure default channels in the settings.', 'peertube-video-manager' ) . '</p>';
 		}
 
 		// Parse channels (comma-separated or newline-separated)
@@ -59,11 +59,11 @@ class PT_Channels_Ordered {
 		$channels = array_filter( $channels );
 
 		if ( empty( $channels ) ) {
-			return '<p class="pt-no-videos">' . esc_html__( 'Keine gültigen Kanäle gefunden.', 'peertube-video-manager' ) . '</p>';
+			return '<p class="pt-no-videos">' . esc_html__( 'No valid channels found.', 'peertube-video-manager' ) . '</p>';
 		}
 
 		$api      = new PT_API();
-		$base_url = get_option( 'pt_vm_base_url', 'https://lokalmedial.de' );
+		$base_url = get_option( 'pt_vm_base_url', 'https://video3.cappital.co' );
 		$channels_data = array();
 
 		// Get latest video from each channel and preserve order
@@ -189,7 +189,7 @@ class PT_Channels_Ordered {
 		} );
 
 		if ( empty( $channels_with_videos ) ) {
-			return '<p class="pt-no-videos">' . esc_html__( 'Keine Videos gefunden.', 'peertube-video-manager' ) . '</p>';
+			return '<p class="pt-no-videos">' . esc_html__( 'No videos found.', 'peertube-video-manager' ) . '</p>';
 		}
 
 		ob_start();

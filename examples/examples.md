@@ -1,176 +1,176 @@
-# Beispiele für PeerTube Video Manager
+# Examples of PeerTube Video Manager
 
-Hier finden Sie praktische Beispiele für die Verwendung des Plugins in verschiedenen Szenarien.
+Here you will find practical examples of using the plugin in various scenarios.
 
-## 1. Einfache Video-Mediathek
+## 1. Simple video library
 
-Erstellen Sie eine Seite "Videos" mit allen neuesten Videos.
+Create a Videos page with all the latest videos.
 
 ### Setup
-1. Erstellen Sie eine neue Seite: "Videos"
-2. Fügen Sie diesen Shortcode ein:
+1. Create a new page: "Videos"
+2. Paste this shortcode:
 
 ```
 [pt-last-videos count="16"]
 ```
 
-**Ergebnis:** Eine Grid-Ansicht mit den 16 neuesten Videos Ihrer PeerTube-Instanz.
+**Result:** A grid view with the 16 most recent videos from your PeerTube instance.
 
 ---
 
-## 2. Kanal-Übersichtsseite
+## 2. Channel overview page
 
-Zeigen Sie das neueste Video von jedem Ihrer Kanäle an.
+View the latest video from each of your channels.
 
 ### Setup
-1. Gehen Sie zu `Einstellungen > PeerTube Videos`
-2. Fügen Sie Ihre Kanäle unter "Standard-Kanäle" ein:
+1. Go to `Settings > PeerTube Videos`
+2. Add your channels under "Standard Channels":
 ```
 ok_dessau
 ok_magdeburg
 okmq
 ok_merseburg
 ```
-3. Erstellen Sie eine Seite "Alle Kanäle"
-4. Fügen Sie diesen Shortcode ein:
+3. Create an “All Channels” page
+4. Paste this shortcode:
 
 ```
 [pt-latest-per-channel]
 ```
 
-**Ergebnis:** Vier Karten mit dem neuesten Video von jedem Kanal.
+**Result:** Four cards with the latest video from each channel.
 
 ---
 
-## 3. Dedizierte Kanal-Seite
+## 3. Dedicated Channel Page
 
-Erstellen Sie eine eigene Seite für jeden Kanal mit allen Videos.
+Create a separate page for each channel with all videos.
 
 ### Setup
-1. Erstellen Sie eine Seite "OK Dessau"
-2. Fügen Sie ein:
+1. Create an “OK Dessau” page
+2. Insert:
 
 ```html
-<h1>OK Dessau - Offener Kanal Dessau</h1>
-<p>Hier finden Sie alle Videos vom Offenen Kanal Dessau.</p>
+<h1>OK Dessau - Open Canal Dessau</h1>
+<p>Here you can find all videos from the Dessau Open Channel.</p>
 
 [pt-channel-videos channel="ok_dessau" count="12"]
 ```
 
-Wiederholen Sie dies für jeden Kanal mit dem entsprechenden channel-Handle.
+Repeat this for each channel with the appropriate channel handle.
 
 ---
 
-## 4. Video-Detailseite (statisch)
+## 4. Video details page (static)
 
-Erstellen Sie eine Seite für ein bestimmtes Video.
+Create a page for a specific video.
 
 ### Setup
-1. Erstellen Sie eine Seite "Featured Video"
-2. Fügen Sie ein:
+1. Create a Featured Video Page
+2. Insert:
 
 ```
 [pt-video id="xc86cB87iZXsgCofjHVcYJ"]
 ```
 
-**Ergebnis:** Vollständige Video-Ansicht mit Player, Beschreibung und allen Metadaten.
+**Result:** Full video view with player, description and all metadata.
 
 ---
 
-## 5. Video-Detailseite (dynamisch mit Video-Nummer)
+## 5. Video details page (dynamic with video number)
 
-Ideal für Videos mit Video-Nummern aus dem peertube-plugin-okas-dev.
+Ideal for videos with video numbers from the peertube-plugin-okas-dev.
 
 ### Setup
-1. Erstellen Sie eine Seite "Video"
-2. Fügen Sie ein:
+1. Create a “Video” page
+2. Insert:
 
 ```
 [pt-video number="12345"]
 ```
 
-**Verwendung:** Verlinken Sie auf diese Seite mit verschiedenen Video-Nummern als Parameter.
+**Usage:** Link to this page with different video numbers as parameters.
 
 ---
 
-## 6. Suchfunktion
+## 6. Search function
 
-Fügen Sie eine Suchfunktion für Ihre Video-Mediathek hinzu.
+Add a search function for your video library.
 
-### Setup A: Alles auf einer Seite
+### Setup A: Everything on one page
 
-Erstellen Sie eine Seite "Video-Suche" mit:
+Create a Video Search page with:
 
 ```
-<h1>Video-Suche</h1>
-[pt-search placeholder="Nach Videos suchen..."]
+<h1>Video search</h1>
+[pt-search placeholder="Search for videos..."]
 
-<h2>Suchergebnisse</h2>
+<h2>Search results</h2>
 [pt-search-results per_page="12"]
 ```
 
-### Setup B: Getrennte Seiten
+### Setup B: Separate pages
 
-**Seite 1: "Suche" (/suche/)**
+**Page 1: "Search" (/search/)**
 ```
-<h1>Video-Suche</h1>
-[pt-search action="/suchergebnisse/"]
+<h1>Video search</h1>
+[pt-search action="/search results/"]
 ```
 
-**Seite 2: "Suchergebnisse" (/suchergebnisse/)**
+**Page 2: "Search results" (/search results/)**
 ```
-<h1>Suchergebnisse</h1>
+<h1>Search results</h1>
 [pt-search-results per_page="15"]
 ```
 
 ---
 
-## 7. Homepage mit Featured Videos
+## 7. Homepage with featured videos
 
-Zeigen Sie auf der Homepage eine kleine Auswahl an Videos.
+Show a small selection of videos on the homepage.
 
 ### Setup
-Auf Ihrer Homepage:
+On your homepage:
 
 ```html
 <section class="featured-videos">
-    <h2>Aktuelle Videos</h2>
+    <h2>Current videos</h2>
     [pt-last-videos count="4"]
-    <p><a href="/videos/">Alle Videos ansehen »</a></p>
+    <p><a href="/videos/">View all videos »</a></p>
 </section>
 ```
 
 ---
 
-## 8. Sidebar-Widget mit neuesten Videos
+## 8. Sidebar widget with latest videos
 
-Nutzen Sie das "HTML"-Widget in Ihrer Sidebar.
+Use the "HTML" widget in your sidebar.
 
 ### Setup
-1. Gehen Sie zu `Design > Widgets`
-2. Fügen Sie ein "Benutzerdefiniertes HTML"-Widget hinzu
-3. Inhalt:
+1. Go to `Design > Widgets`
+2. Add a “Custom HTML” widget
+3. Content:
 
 ```html
-<h3>Neueste Videos</h3>
+<h3>Latest Videos</h3>
 [pt-latest-per-channel channels="ok_dessau,ok_magdeburg"]
 ```
 
-**Hinweis:** Passen Sie das CSS eventuell an für eine kompaktere Darstellung.
+**Note:** Consider adjusting the CSS for a more compact display.
 
 ---
 
-## 9. Archiv-Seite mit Jahresfilter
+## 9. Archive page with year filter
 
-Kombinieren Sie mehrere Shortcodes für ein Archiv.
+Combine multiple shortcodes for one archive.
 
 ### Setup
-Erstellen Sie eine Seite "Video-Archiv 2024":
+Create a "Video Archive 2024" page:
 
 ```html
-<h1>Video-Archiv 2024</h1>
+<h1>Video archive 2024</h1>
 
-<h2>Alle Kanäle</h2>
+<h2>All channels</h2>
 [pt-latest-per-channel]
 
 <hr>
@@ -187,179 +187,178 @@ Erstellen Sie eine Seite "Video-Archiv 2024":
 
 ---
 
-## 10. Landing Page für Spezial-Event
+## 10. Landing page for special event
 
-Erstellen Sie eine Seite für eine spezielle Video-Serie oder ein Event.
+Create a page for a specific video series or event.
 
 ### Setup
-Seite "Themenabend Klimawandel":
+Page “Climate Change Theme Evening”:
 
 ```html
-<h1>Themenabend: Klimawandel</h1>
-<p>Eine Sammlung unserer Videos zum Thema Klimawandel.</p>
+<h1>Theme evening: Climate Change</h1>
+<p>A collection of our videos on the topic of climate change.</p>
 
-[pt-search placeholder="Weitere Videos zum Thema suchen..."]
+[pt-search placeholder="Search more videos on this topic..."]
 [pt-search-results per_page="8"]
 
 <hr>
 
-<h2>Empfohlenes Video</h2>
+<h2>Recommended video</h2>
 [pt-video id="ABC123XYZ"]
 ```
 
 ---
 
-## 11. Multi-Kanal Übersicht
+## 11. Multi-channel overview
 
-Zeigen Sie Videos von spezifischen Kanälen basierend auf Thema.
+Show videos from specific channels based on topic.
 
 ### Setup
-Seite "Regional-Nachrichten":
+Regional News Page:
 
 ```
-<h1>Regional-Nachrichten</h1>
+<h1>Regional news</h1>
 [pt-latest-per-channel channels="ok_dessau,ok_magdeburg,ok_merseburg"]
 ```
 
 ---
 
-## 12. Responsive Navigation
+## 12. Responsive navigation
 
-Nutzen Sie WordPress-Menüs für Kanal-Navigation.
+Use WordPress menus for channel navigation.
 
 ### Setup
-1. Erstellen Sie eine Seite pro Kanal (siehe Beispiel 3)
-2. Gehen Sie zu `Design > Menüs`
-3. Fügen Sie alle Kanal-Seiten zum Menü hinzu
-4. Struktur:
+1. Create one page per channel (see example 3)
+2. Go to `Design > Menus`
+3. Add all channel pages to the menu
+4. Structure:
 ```
-Videos
-├── Alle Videos
-├── Suche
-├── Kanäle
-│   ├── OK Dessau
-│   ├── OK Magdeburg
-│   ├── OKMQ
-│   └── OK Merseburg
+videos
+├── All videos
+├── Search
+├── Channels
+│ ├── OK Dessau
+│ ├── OK Magdeburg
+│ ├── OKMQ
+│ └── OK Merseburg
 ```
 
 ---
 
-## 13. Blog-Post mit eingebettetem Video
+## 13. Blog post with embedded video
 
-Fügen Sie ein spezifisches Video in einen Blog-Post ein.
+Include a specific video in a blog post.
 
 ### Setup
-In Ihrem Blog-Post:
+In your blog post:
 
 ```html
-<h2>Unser neuestes Video</h2>
-<p>Schauen Sie sich unser neuestes Interview an:</p>
+<h2>Our latest video</h2>
+<p>Check out our latest interview:</p>
 
 [pt-video id="VIDEO_ID_HIER"]
 
-<p>Was denken Sie über das Thema? Schreiben Sie es in die Kommentare!</p>
+<p>What do you think about the topic? Write it in the comments!</p>
 ```
 
 ---
 
-## 14. Themen-basierte Sammlung
+## 14. Theme based collection
 
-Nutzen Sie die Suchfunktion für thematische Sammlungen.
+Use the search function for thematic collections.
 
 ### Setup
-Seite "Dokumentationen":
+Documentation page:
 
 ```html
-<h1>Dokumentationen</h1>
-<p>Alle unsere Dokumentarfilme an einem Ort.</p>
+<h1>Documents</h1>
+<p>All our documentaries in one place.</p>
 
-<!-- Nutzer sucht nach "Dokumentation" -->
-[pt-search placeholder="Dokumentationen durchsuchen..."]
+<!-- User searches for “Documentation” -->
+[pt-search placeholder="Search documentation..."]
 [pt-search-results per_page="10"]
 ```
 
 ---
 
-## 15. Mehrsprachige Seite
+## 15. Multilingual site
 
-Nutzen Sie WPML oder Polylang für mehrsprachige Video-Seiten.
+Use WPML or Polylang for multilingual video sites.
 
 ### Setup
-**Deutsche Version (/de/videos/):**
+**German version (/de/videos/):**
 ```
 <h1>Videos</h1>
 [pt-last-videos count="12"]
 ```
 
-**Englische Version (/en/videos/):**
+**English version (/en/videos/):**
 ```
 <h1>Videos</h1>
 [pt-last-videos count="12"]
 ```
 
-Die Video-Titel und Beschreibungen kommen direkt von PeerTube und behalten ihre Originalsprache.
+The video titles and descriptions come directly from PeerTube and retain their original language.
 
 ---
 
-## Tipps für alle Beispiele
+## Tips for all examples
 
 ### Performance
-- Verwenden Sie `count`-Attribute sinnvoll (nicht zu hoch)
-- Nutzen Sie Caching-Plugins zusätzlich
-- Lazy Loading ist standardmäßig aktiviert
+- Use `count` attributes wisely (not too high)
+- Use caching plugins additionally
+- Lazy loading is enabled by default
 
 ### Design
-- Passen Sie CSS in Ihrem Theme an
-- Verwenden Sie Theme-Builder (Elementor, etc.) für Layout
-- Testen Sie auf verschiedenen Bildschirmgrößen
+- Customize CSS in your theme
+- Use theme builder (Elementor, etc.) for layout
+- Test on different screen sizes
 
 ### SEO
-- Fügen Sie Meta-Beschreibungen hinzu
-- Nutzen Sie beschreibende Seitentitel
-- Erstellen Sie eine Sitemap mit allen Video-Seiten
+- Add meta descriptions
+- Use descriptive page titles
+- Create a sitemap with all video pages
 
-### Wartung
-- Leeren Sie den Cache nach größeren Änderungen
-- Überprüfen Sie regelmäßig die Verbindung zur PeerTube-Instanz
-- Aktualisieren Sie das Plugin bei neuen Versionen
+### Maintenance
+- Clear cache after major changes
+- Regularly check the connection to the PeerTube instance
+- Update the plugin on new versions
 
 ---
 
-## Kombinationen
+## Combinations
 
-Sie können Shortcodes auch kombinieren für komplexe Layouts:
+You can also combine shortcodes for complex layouts:
 
 ```html
 <div class="video-page">
     <section class="hero">
-        <h1>Willkommen in unserer Mediathek</h1>
+        <h1>Welcome to our media library</h1>
         [pt-search]
     </section>
     
     <section class="featured">
-        <h2>Neuste Beiträge</h2>
+        <h2>Latest posts</h2>
         [pt-latest-per-channel]
     </section>
     
     <section class="all-videos">
-        <h2>Alle Videos</h2>
+        <h2>All videos</h2>
         [pt-last-videos count="12"]
     </section>
 </div>
 ```
 
-Passen Sie dann das CSS an für das gewünschte Layout.
+Then adjust the CSS for the desired layout.
 
 ---
 
 ## Support
 
-Wenn Sie Fragen zu diesen Beispielen haben oder Hilfe bei der Umsetzung benötigen:
+If you have questions about these examples or need help implementing them:
 
-1. Überprüfen Sie die vollständige Dokumentation
-2. Schauen Sie in die FAQ
-3. Erstellen Sie ein Issue auf GitHub
+1. Check the complete documentation
+2. Check out the FAQ
+3. Create an issue on GitHub
 
-**Viel Erfolg mit Ihrer Video-Plattform!** 🎬
-
+**Good luck with your video platform!** 🎬

@@ -113,9 +113,9 @@ $video_link_url = ! empty( $wp_video_url ) ? $wp_video_url : $peertube_url;
 		<div class="pt-video-meta">
 			<span class="pt-meta-line">
 				<?php if ( ! empty( $sender_responsible ) ) : ?>
-					<span class="pt-meta-item pt-meta-sender" title="<?php esc_attr_e( 'Sendeverantwortung', 'peertube-video-manager' ); ?>">
+					<span class="pt-meta-item pt-meta-sender" title="<?php esc_attr_e( 'Broadcasting responsibility', 'peertube-video-manager' ); ?>">
 						<?php echo PT_Formatter::get_svg_icon( 'person', 16 ); ?>
-						<span class="pt-meta-label"><?php esc_html_e( 'Sendeverantwortung:', 'peertube-video-manager' ); ?></span>
+						<span class="pt-meta-label"><?php esc_html_e( 'Broadcasting responsibility:', 'peertube-video-manager' ); ?></span>
 						<?php echo esc_html( $sender_responsible ); ?>
 					</span>
 				<?php endif; ?>
@@ -123,21 +123,21 @@ $video_link_url = ! empty( $wp_video_url ) ? $wp_video_url : $peertube_url;
 			
 			<span class="pt-meta-line">
 				<?php if ( $video_duration > 0 ) : ?>
-					<span class="pt-meta-item pt-meta-duration" title="<?php esc_attr_e( 'Länge', 'peertube-video-manager' ); ?>">
+					<span class="pt-meta-item pt-meta-duration" title="<?php esc_attr_e( 'Length', 'peertube-video-manager' ); ?>">
 						<?php echo PT_Formatter::get_svg_icon( 'clock', 16 ); ?>
 						<?php echo esc_html( $duration_str ); ?>
 					</span>
 				<?php endif; ?>
 				
 				<?php if ( ! empty( $relative_time ) ) : ?>
-					<span class="pt-meta-item pt-meta-date" title="<?php esc_attr_e( 'Veröffentlicht', 'peertube-video-manager' ); ?>">
+					<span class="pt-meta-item pt-meta-date" title="<?php esc_attr_e( 'Published', 'peertube-video-manager' ); ?>">
 						<?php echo PT_Formatter::get_svg_icon( 'calendar', 16 ); ?>
 						<?php echo esc_html( $relative_time ); ?>
 					</span>
 				<?php endif; ?>
 				
 				<?php if ( ! empty( $category_name ) ) : ?>
-					<span class="pt-meta-item pt-meta-category" title="<?php esc_attr_e( 'Kategorie', 'peertube-video-manager' ); ?>">
+					<span class="pt-meta-item pt-meta-category" title="<?php esc_attr_e( 'Category', 'peertube-video-manager' ); ?>">
 						<?php echo PT_Formatter::get_svg_icon( 'folder', 16 ); ?>
 						<?php echo esc_html( $category_name ); ?>
 					</span>
@@ -147,7 +147,7 @@ $video_link_url = ! empty( $wp_video_url ) ? $wp_video_url : $peertube_url;
 				$show_views = get_option( 'pt_vm_show_views', false );
 				if ( $show_views && $video_views >= 0 ) :
 				?>
-					<span class="pt-meta-item pt-meta-views" title="<?php esc_attr_e( 'Aufrufe', 'peertube-video-manager' ); ?>">
+					<span class="pt-meta-item pt-meta-views" title="<?php esc_attr_e( 'Views', 'peertube-video-manager' ); ?>">
 						<?php echo PT_Formatter::get_svg_icon( 'eye', 16 ); ?>
 						<?php echo esc_html( $views_str ); ?>
 					</span>

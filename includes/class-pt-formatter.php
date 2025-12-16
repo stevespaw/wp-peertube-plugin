@@ -58,21 +58,21 @@ class PT_Formatter {
 		$diff = time() - $time;
 		
 		if ( $diff < 0 ) {
-			return __( 'In der Zukunft', 'peertube-video-manager' );
+			return __( 'In the future', 'peertube-video-manager' );
 		}
 		
 		if ( $diff < MINUTE_IN_SECONDS ) {
-			return __( 'Gerade eben', 'peertube-video-manager' );
+			return __( 'Just now', 'peertube-video-manager' );
 		}
 		
 		if ( $diff < HOUR_IN_SECONDS ) {
 			$minutes = floor( $diff / MINUTE_IN_SECONDS );
 			if ( $minutes === 1 ) {
-				return __( 'Vor 1 Minute', 'peertube-video-manager' );
+				return __( '1 minute ago', 'peertube-video-manager' );
 			}
 			return sprintf(
 				/* translators: %d: number of minutes */
-				__( 'Vor %d Minuten', 'peertube-video-manager' ),
+				__( '%d minutes ago', 'peertube-video-manager' ),
 				$minutes
 			);
 		}
@@ -80,11 +80,11 @@ class PT_Formatter {
 		if ( $diff < DAY_IN_SECONDS ) {
 			$hours = floor( $diff / HOUR_IN_SECONDS );
 			if ( $hours === 1 ) {
-				return __( 'Vor 1 Stunde', 'peertube-video-manager' );
+				return __( '1 hour ago', 'peertube-video-manager' );
 			}
 			return sprintf(
 				/* translators: %d: number of hours */
-				__( 'Vor %d Stunden', 'peertube-video-manager' ),
+				__( '%d hours ago', 'peertube-video-manager' ),
 				$hours
 			);
 		}
@@ -92,11 +92,11 @@ class PT_Formatter {
 		if ( $diff < WEEK_IN_SECONDS ) {
 			$days = floor( $diff / DAY_IN_SECONDS );
 			if ( $days === 1 ) {
-				return __( 'Vor 1 Tag', 'peertube-video-manager' );
+				return __( '1 day ago', 'peertube-video-manager' );
 			}
 			return sprintf(
 				/* translators: %d: number of days */
-				__( 'Vor %d Tagen', 'peertube-video-manager' ),
+				__( '%d days ago', 'peertube-video-manager' ),
 				$days
 			);
 		}
@@ -104,11 +104,11 @@ class PT_Formatter {
 		if ( $diff < MONTH_IN_SECONDS ) {
 			$weeks = floor( $diff / WEEK_IN_SECONDS );
 			if ( $weeks === 1 ) {
-				return __( 'Vor 1 Woche', 'peertube-video-manager' );
+				return __( '1 week ago', 'peertube-video-manager' );
 			}
 			return sprintf(
 				/* translators: %d: number of weeks */
-				__( 'Vor %d Wochen', 'peertube-video-manager' ),
+				__( '%d weeks ago', 'peertube-video-manager' ),
 				$weeks
 			);
 		}
@@ -116,22 +116,22 @@ class PT_Formatter {
 		if ( $diff < YEAR_IN_SECONDS ) {
 			$months = floor( $diff / MONTH_IN_SECONDS );
 			if ( $months === 1 ) {
-				return __( 'Vor 1 Monat', 'peertube-video-manager' );
+				return __( '1 month ago', 'peertube-video-manager' );
 			}
 			return sprintf(
 				/* translators: %d: number of months */
-				__( 'Vor %d Monaten', 'peertube-video-manager' ),
+				__( '%d months ago', 'peertube-video-manager' ),
 				$months
 			);
 		}
 		
 		$years = floor( $diff / YEAR_IN_SECONDS );
 		if ( $years === 1 ) {
-			return __( 'Vor 1 Jahr', 'peertube-video-manager' );
+			return __( '1 year ago', 'peertube-video-manager' );
 		}
 		return sprintf(
 			/* translators: %d: number of years */
-			__( 'Vor %d Jahren', 'peertube-video-manager' ),
+			__( '%d years ago', 'peertube-video-manager' ),
 			$years
 		);
 	}
@@ -145,7 +145,7 @@ class PT_Formatter {
 	 */
 	public static function format_views( $count ) {
 		if ( ! is_numeric( $count ) ) {
-			return '0 Aufrufe';
+			return '0 Views';
 		}
 		
 		$formatted = number_format_i18n( $count );
@@ -153,14 +153,14 @@ class PT_Formatter {
 		if ( $count === 1 ) {
 			return sprintf(
 				/* translators: %s: formatted number */
-				__( '%s Aufruf', 'peertube-video-manager' ),
+				__( '%s Views', 'peertube-video-manager' ),
 				$formatted
 			);
 		}
 		
 		return sprintf(
 			/* translators: %s: formatted number */
-			__( '%s Aufrufe', 'peertube-video-manager' ),
+			__( '%s Views', 'peertube-video-manager' ),
 			$formatted
 		);
 	}

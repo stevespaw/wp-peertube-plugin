@@ -48,7 +48,7 @@ class PT_Video_Detail {
 
 		// At least one parameter is required
 		if ( empty( $id ) && empty( $number ) ) {
-			return '<p class="pt-error">' . esc_html__( 'Bitte geben Sie eine Video-ID (id) oder Video-Nummer (number) an.', 'peertube-video-manager' ) . '</p>';
+			return '<p class="pt-error">' . esc_html__( 'Please provide a video ID (id) or video number (number).', 'peertube-video-manager' ) . '</p>';
 		}
 
 		$api   = new PT_API();
@@ -73,9 +73,9 @@ class PT_Video_Detail {
 			$video = $api->find_video_by_number( $number, ! empty( $channel ) ? $channel : null );
 			
 			if ( null === $video ) {
-				$error_msg = esc_html__( 'Video mit Video-Nummer "%s" nicht gefunden.', 'peertube-video-manager' );
+				$error_msg = esc_html__( 'Video with video number "%s" not found.', 'peertube-video-manager' );
 				if ( ! empty( $channel ) ) {
-					$error_msg = esc_html__( 'Video mit Video-Nummer "%s" im Kanal "%s" nicht gefunden.', 'peertube-video-manager' );
+					$error_msg = esc_html__( 'Video with video number "%s" not found in channel "%s".', 'peertube-video-manager' );
 					return '<p class="pt-error">' . sprintf(
 						$error_msg,
 						esc_html( $number ),
@@ -95,13 +95,13 @@ class PT_Video_Detail {
 			if ( null === $video ) {
 				return '<p class="pt-error">' . sprintf(
 					/* translators: %s: video ID */
-					esc_html__( 'Video mit ID "%s" nicht gefunden.', 'peertube-video-manager' ),
+					esc_html__( 'Video with ID "%s" not found.', 'peertube-video-manager' ),
 					esc_html( $id )
 				) . '</p>';
 			}
 		}
 
-		$base_url = get_option( 'pt_vm_base_url', 'https://lokalmedial.de' );
+		$base_url = get_option( 'pt_vm_base_url', 'https://video3.cappital.co' );
 
 		ob_start();
 		$template_path = PT_VM_PLUGIN_DIR . 'templates/video-detail.php';

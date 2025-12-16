@@ -465,8 +465,8 @@ class PeerTube_Video_Manager {
 		$selector_html = '<div class="pt-search-type-selector" style="display: inline-flex; align-items: stretch; margin-left: 0.25em; position: relative; vertical-align: middle;">';
 		$selector_html .= '<select name="pt_search_type" class="pt-search-type-select" style="padding: 0.5em 2.2em 0.5em 0.75em; border: 1px solid rgba(0,0,0,0.2); border-left: none; border-radius: 0 4px 4px 0; background: #f8f9fa; font-size: 0.875em; cursor: pointer; appearance: none; background-image: url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="%23666" d="M5 8L1 3h8z"/></svg>\'); background-repeat: no-repeat; background-position: right 0.6em center; padding-right: 2em; color: #333; height: 100%; min-height: 2.5em;">';
 		// Get option texts from settings
-		$wp_option_text_fallback = get_option( 'pt_vm_wp_search_wp_option_text', __( 'Auf der Webseite suchen', 'peertube-video-manager' ) );
-		$peertube_option_text_fallback = get_option( 'pt_vm_wp_search_peertube_option_text', __( 'In Mediathek LokalMedial.de suchen', 'peertube-video-manager' ) );
+		$wp_option_text_fallback = get_option( 'pt_vm_wp_search_wp_option_text', __( 'Search on the website', 'peertube-video-manager' ) );
+		$peertube_option_text_fallback = get_option( 'pt_vm_wp_search_peertube_option_text', __( 'Search in the media library', 'peertube-video-manager' ) );
 		
 		$selector_html .= '<option value="wp" ' . selected( $search_type, 'wp', false ) . '>' . esc_html( $wp_option_text_fallback ) . '</option>';
 		$selector_html .= '<option value="peertube" ' . selected( $search_type, 'peertube', false ) . '>' . esc_html( $peertube_option_text_fallback ) . '</option>';
@@ -597,10 +597,10 @@ class PeerTube_Video_Manager {
 
 		// Ensure values are not empty - use defaults if empty or false
 		if ( $wp_option_text === false || empty( trim( $wp_option_text ) ) ) {
-			$wp_option_text = __( 'Auf der Webseite suchen', 'peertube-video-manager' );
+			$wp_option_text = __( 'Search on the website', 'peertube-video-manager' );
 		}
 		if ( $peertube_option_text === false || empty( trim( $peertube_option_text ) ) ) {
-			$peertube_option_text = __( 'In Mediathek LokalMedial.de suchen', 'peertube-video-manager' );
+			$peertube_option_text = __( 'Search in the media library', 'peertube-video-manager' );
 		}
 
 		// Trim and sanitize for JavaScript
@@ -776,7 +776,7 @@ class PeerTube_Video_Manager {
 function pt_vm_activate() {
 	// Set default options if not exist
 	if ( ! get_option( 'pt_vm_base_url' ) ) {
-		add_option( 'pt_vm_base_url', 'https://lokalmedial.de' );
+		add_option( 'pt_vm_base_url', 'https://video3.cappital.co' );
 	}
 	if ( ! get_option( 'pt_vm_cache_time_videos' ) ) {
 		add_option( 'pt_vm_cache_time_videos', 5 );
@@ -794,7 +794,7 @@ function pt_vm_activate() {
 		add_option( 'pt_vm_show_views', false );
 	}
 	if ( ! get_option( 'pt_vm_peertube_button_text' ) ) {
-		add_option( 'pt_vm_peertube_button_text', __( 'Auf PeerTube ansehen', 'peertube-video-manager' ) );
+		add_option( 'pt_vm_peertube_button_text', __( 'Watch on Media Platform', 'peertube-video-manager' ) );
 	}
 	if ( ! get_option( 'pt_vm_button_color' ) ) {
 		add_option( 'pt_vm_button_color', '#1e40af' );
@@ -806,13 +806,13 @@ function pt_vm_activate() {
 		add_option( 'pt_vm_button_text_color', '#ffffff' );
 	}
 	if ( ! get_option( 'pt_vm_wp_search_section_title' ) ) {
-		add_option( 'pt_vm_wp_search_section_title', __( 'PeerTube Videos', 'peertube-video-manager' ) );
+		add_option( 'pt_vm_wp_search_section_title', __( 'Media Platform Videos', 'peertube-video-manager' ) );
 	}
 	if ( ! get_option( 'pt_vm_wp_search_wp_option_text' ) ) {
-		add_option( 'pt_vm_wp_search_wp_option_text', __( 'Auf der Webseite suchen', 'peertube-video-manager' ) );
+		add_option( 'pt_vm_wp_search_wp_option_text', __( 'Search on the website', 'peertube-video-manager' ) );
 	}
 	if ( ! get_option( 'pt_vm_wp_search_peertube_option_text' ) ) {
-		add_option( 'pt_vm_wp_search_peertube_option_text', __( 'In Mediathek LokalMedial.de suchen', 'peertube-video-manager' ) );
+		add_option( 'pt_vm_wp_search_peertube_option_text', __( 'Search in the media library', 'peertube-video-manager' ) );
 	}
 
 	// Create search page if it doesn't exist
@@ -845,16 +845,16 @@ function pt_vm_activate() {
 			update_option( 'pt_vm_search_page_id', $existing_page_id );
 		} else {
 			// Create new search page with simple content
-			$search_page_content = __( 'Suche in der PeerTube Mediathek', 'peertube-video-manager' ) . "\n\n" .
-				'[pt-search placeholder="' . __( 'Suche...', 'peertube-video-manager' ) . '"]' . "\n\n" .
+			$search_page_content = __( 'Search in the media library', 'peertube-video-manager' ) . "\n\n" .
+				'[pt-search placeholder="' . __( 'Search...', 'peertube-video-manager' ) . '"]' . "\n\n" .
 				'[pt-search-results per_page="12"]';
 
 			$page_data = array(
-				'post_title'    => __( 'PeerTube Suche', 'peertube-video-manager' ),
+				'post_title'    => __( 'Media Library Search', 'peertube-video-manager' ),
 				'post_content'  => $search_page_content,
 				'post_status'   => 'publish',
 				'post_type'     => 'page',
-				'post_name'     => 'peertube-suche',
+				'post_name'     => 'peertube-search',
 			);
 
 			$search_page_id = wp_insert_post( $page_data );
@@ -894,10 +894,10 @@ function pt_vm_activate() {
 			update_option( 'pt_vm_video_page_id', $existing_page_id );
 		} else {
 			// Create new video page - the shortcode will be added automatically via auto_display_video filter
-			$video_page_content = __( 'PeerTube Video', 'peertube-video-manager' );
+			$video_page_content = __( 'Media Platform Video', 'peertube-video-manager' );
 
 			$page_data = array(
-				'post_title'    => __( 'PeerTube Video', 'peertube-video-manager' ),
+				'post_title'    => __( 'Media Platform Video', 'peertube-video-manager' ),
 				'post_content'  => $video_page_content,
 				'post_status'   => 'publish',
 				'post_type'     => 'page',

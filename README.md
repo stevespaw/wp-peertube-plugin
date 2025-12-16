@@ -4,68 +4,68 @@
 [![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)](https://wordpress.org/)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-purple.svg)](https://php.net/)
 
-Ein WordPress-Plugin zur Integration von PeerTube-Videos mit Shortcodes. Zeigt Videos, Kanäle, Suche und benutzerdefinierte Metadaten einschließlich Sendeverantwortung an.
+A WordPress plugin to integrate PeerTube videos with shortcodes. Displays videos, channels, search and custom metadata including send responsibility.
 
 **Repository:** [https://github.com/yarkolife/wp-peertube-plugin](https://github.com/yarkolife/wp-peertube-plugin)
 
-## Funktionen
+## Features
 
-- **4 Shortcodes** für verschiedene Video-Ansichten
-- **Intelligente Caching** für optimale Performance
-- **Responsive Design** für alle Bildschirmgrößen
-- **Benutzerdefinierte Metadaten** aus PeerTube-Plugins
-- **Suche** mit Paginierung
-- **Konfigurierbares Backend** mit Einstellungsseite
-- **Deutsche Übersetzung** included
+- **4 shortcodes** for different video views
+- **Intelligent caching** for optimal performance
+- **Responsive Design** for all screen sizes
+- **Custom metadata** from PeerTube plugins
+- **Search** with pagination
+- **Configurable backend** with settings page
+- **German translation** included
 
-## Anforderungen
+## Requirements
 
-- WordPress 6.0 oder höher
-- PHP 7.4 oder höher
-- PeerTube Instanz (API-Zugriff)
+- WordPress 6.0 or higher
+- PHP 7.4 or higher
+- PeerTube instance (API access)
 
 ## Installation
 
-### Über WordPress Admin
+### About WordPress Admin
 
-1. Laden Sie die [ZIP-Datei](https://github.com/yarkolife/wp-peertube-plugin/releases/latest) herunter
-2. Gehen Sie zu `Plugins > Installieren > Plugin hochladen`
-3. Wählen Sie die ZIP-Datei aus
-4. Klicken Sie auf "Jetzt installieren"
-5. Aktivieren Sie das Plugin
+1. Download the [ZIP file](https://github.com/yarkolife/wp-peertube-plugin/releases/latest).
+2. Go to `Plugins > Install > Upload Plugin`
+3. Select the ZIP file
+4. Click “Install Now”
+5. Activate the plugin
 
-### Über Git (für Entwickler)
+### About Git (for developers)
 
 ```bash
 cd wp-content/plugins/
 git clone https://github.com/yarkolife/wp-peertube-plugin.git peertube-video-manager
 ```
 
-### Manuell
+### Manually
 
-1. Laden Sie die Plugin-Dateien in `/wp-content/plugins/peertube-video-manager/` hoch
-2. Aktivieren Sie das Plugin über das 'Plugins'-Menü in WordPress
+1. Upload the plugin files to `/wp-content/plugins/peertube-video-manager/`
+2. Activate the plugin from the 'Plugins' menu in WordPress
 
-## Konfiguration
+## Configuration
 
-Gehen Sie nach der Aktivierung zu `Einstellungen > PeerTube Videos`:
+Once activated, go to `Settings > PeerTube Videos`:
 
-- **PeerTube Instanz URL**: Die URL Ihrer PeerTube-Instanz (z.B. `https://lokalmedial.de`)
-- **Standard-Kanäle**: Liste der Kanal-Handles (einen pro Zeile)
-- **Cache-Zeiten**: Wie lange Daten zwischengespeichert werden
-- **Videos pro Seite**: Standard-Anzahl der angezeigten Videos
+- **PeerTube instance URL**: The URL of your PeerTube instance (e.g. `https://lokalmedial.de`)
+- **Standard Channels**: List of channel handles (one per line)
+- **Cache Times**: How long data is cached
+- **Videos per page**: Default number of videos displayed
 
 ## Shortcodes
 
 ### [pt-last-videos]
 
-Zeigt die neuesten Videos der Instanz an.
+Displays the latest videos of the instance.
 
-**Attribute:**
-- `count` (optional, Standard: 8) - Anzahl der Videos
-- `host_only` (optional, Standard: "true") - Nur lokale Videos
+**Attributes:**
+- `count` (optional, default: 8) - number of videos
+- `host_only` (optional, default: "true") - Local videos only
 
-**Beispiele:**
+**Examples:**
 ```
 [pt-last-videos]
 [pt-last-videos count="12"]
@@ -74,126 +74,126 @@ Zeigt die neuesten Videos der Instanz an.
 
 ### [pt-latest-per-channel]
 
-Zeigt das neueste Video von jedem Kanal an.
+Displays the latest video from each channel.
 
-**Attribute:**
-- `channels` (optional) - Komma-getrennte Liste von Kanal-Handles
+**Attributes:**
+- `channels` (optional) - Comma separated list of channel handles
 
-**Beispiele:**
+**Examples:**
 ```
 [pt-latest-per-channel]
 [pt-latest-per-channel channels="ok_dessau,ok_magdeburg,okmq"]
 ```
 
-Wenn kein `channels`-Attribut angegeben wird, verwendet das Plugin die Standard-Kanäle aus den Einstellungen.
+If no `channels` attribute is specified, the plugin will use the default channels from the settings.
 
 ### [pt-channel-videos]
 
-Zeigt Videos eines bestimmten Kanals an.
+Shows videos from a specific channel.
 
-**Attribute:**
-- `channel` (erforderlich) - Kanal-Handle
-- `count` (optional, Standard: 6) - Anzahl der Videos
+**Attributes:**
+- `channel` (required) - Channel handle
+- `count` (optional, default: 6) - number of videos
 
-**Beispiele:**
+**Examples:**
 ```
 [pt-channel-videos channel="okmq"]
 [pt-channel-videos channel="ok_dessau" count="10"]
 ```
 
-### [pt-video]
+### [pt video]
 
-Zeigt ein einzelnes Video mit allen Details an.
+Displays a single video with all details.
 
-**Attribute:**
-- `id` - Video UUID oder shortUUID
-- `number` - Video-Nummer (aus Plugin-Daten)
+**Attributes:**
+- `id` - Video UUID or shortUUID
+- `number` - video number (from plugin data)
 
-**Beispiele:**
+**Examples:**
 ```
 [pt-video id="xc86cB87iZXsgCofjHVcYJ"]
 [pt-video number="12345"]
 ```
 
-**Hinweis:** Entweder `id` oder `number` muss angegeben werden.
+**Note:** Either `id` or `number` must be specified.
 
 ### [pt-search]
 
-Zeigt ein Suchformular an.
+Displays a search form.
 
-**Attribute:**
-- `placeholder` (optional) - Platzhalter-Text
-- `action` (optional) - Ziel-URL für Suchergebnisse
+**Attributes:**
+- `placeholder` (optional) - placeholder text
+- `action` (optional) - Destination URL for search results
 
-**Beispiele:**
+**Examples:**
 ```
 [pt-search]
-[pt-search placeholder="Videos suchen..."]
-[pt-search action="/suchergebnisse/"]
+[pt-search placeholder="Search videos..."]
+[pt-search action="/search results/"]
 ```
 
 ### [pt-search-results]
 
-Zeigt Suchergebnisse mit Paginierung an.
+Displays search results with pagination.
 
-**Attribute:**
-- `per_page` (optional, Standard: 12) - Videos pro Seite
+**Attributes:**
+- `per_page` (optional, default: 12) - Videos per page
 
-**Beispiele:**
+**Examples:**
 ```
 [pt-search-results]
 [pt-search-results per_page="20"]
 ```
 
-## Angezeigte Metadaten
+## Metadata displayed
 
-Für jedes Video werden folgende Informationen angezeigt:
+The following information is displayed for each video:
 
-- **Thumbnail** - Video-Vorschaubild
-- **Titel** - Video-Name
-- **Länge** - Dauer des Videos (⏱)
-- **Kategorie** - Video-Kategorie (🏷)
-- **Veröffentlichungsdatum** - Relatives Datum (📅)
-- **Aufrufe** - Anzahl der Ansichten (👁)
-- **Sendeverantwortung** - Aus PeerTube-Plugin (👤)
-- **Video-Nummer** - Aus PeerTube-Plugin (🔢)
-- **Tags** - Bis zu 5 Tags pro Video
+- **Thumbnail** - Video thumbnail
+- **Title** - Video name
+- **Length** - Duration of the video (⏱)
+- **Category** - Video Category (🏷)
+- **Publication Date** - Relative Date (📅)
+- **Views** - Number of views (👁)
+- **Sending Responsibility** - From PeerTube plugin (👤)
+- **Video Number** - From PeerTube plugin (🔢)
+- **Tags** - Up to 5 tags per video
 
 ## Caching
 
-Das Plugin verwendet WordPress Transients für Caching:
+The plugin uses WordPress Transients for caching:
 
-- **Video-Listen**: 5 Minuten (konfigurierbar)
-- **Konfiguration**: 24 Stunden (konfigurierbar)
-- **Einzelne Videos**: 10 Minuten
-- **Suchergebnisse**: 2 Minuten
+- **Video Lists**: 5 minutes (configurable)
+- **Configuration**: 24 hours (configurable)
+- **Individual Videos**: 10 minutes
+- **Search results**: 2 minutes
 
-Um den Cache zu leeren, gehen Sie zu `Einstellungen > PeerTube Videos` und klicken Sie auf "Cache löschen".
+To clear the cache, go to Settings > PeerTube Videos and click Clear Cache.
 
 ## Performance
 
-- Respektiert PeerTube API Rate-Limits (50 Anfragen/10 Sekunden)
-- Intelligentes Caching reduziert API-Aufrufe
-- Lazy Loading für Bilder
-- Responsive CSS Grid für optimale Darstellung
+- Respects PeerTube API rate limits (50 requests/10 seconds)
+- Intelligent caching reduces API calls
+- Lazy loading for images
+- Responsive CSS grid for optimal display
 
-## Anpassungen
+## Customizations
 
-### CSS anpassen
+### Customize CSS
 
-Sie können die Stile überschreiben, indem Sie eigene CSS-Regeln in Ihrem Theme hinzufügen:
+You can override the styles by adding your own CSS rules in your theme:
 
 ```css
-/* Beispiel: Video-Karten anpassen */
+/* Example: Adjust video cards */
 .pt-video-card {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 ```
 
-### Templates überschreiben
+### Overwrite templates
 
-Kopieren Sie die Template-Dateien aus `templates/` in Ihr Theme-Verzeichnis:
+Copy the template files from `templates/` into your theme directory:
 
 ```
 your-theme/peertube-video-manager/video-card.php
@@ -201,55 +201,55 @@ your-theme/peertube-video-manager/video-detail.php
 your-theme/peertube-video-manager/search-form.php
 ```
 
-## Häufige Probleme
+## Common problems
 
-### Keine Videos werden angezeigt
+### No videos are displayed
 
-1. Überprüfen Sie die PeerTube-URL in den Einstellungen
-2. Klicken Sie auf "Verbindung testen"
-3. Leeren Sie den Cache
-4. Überprüfen Sie die Browser-Konsole auf Fehler
+1. Check the PeerTube URL in Settings
+2. Click on “Test connection”
+3. Clear the cache
+4. Check the browser console for errors
 
-### Videos werden nicht aktualisiert
+### Videos are not updated
 
-Leeren Sie den Cache über `Einstellungen > PeerTube Videos > Cache löschen`.
+Clear the cache via `Settings > PeerTube Videos > Clear Cache`.
 
-### 404-Fehler bei Video-URLs
+### 404 errors on video URLs
 
-Stellen Sie sicher, dass die PeerTube-URL korrekt ist und die Videos öffentlich zugänglich sind.
+Make sure the PeerTube URL is correct and the videos are publicly accessible.
 
-### Langsame Ladezeiten
+### Slow loading times
 
-- Reduzieren Sie die Anzahl der Videos pro Seite
-- Erhöhen Sie die Cache-Zeit
-- Überprüfen Sie die Verbindung zur PeerTube-Instanz
+- Reduce the number of videos per page
+- Increase cache time
+- Check the connection to the PeerTube instance
 
-## Entwicklung
+## Development
 
-### Struktur
+### Structure
 
 ```
-peertube-video-manager/
-├── peertube-video-manager.php    # Hauptdatei
-├── includes/                      # Core-Klassen
-├── shortcodes/                    # Shortcode-Klassen
-├── templates/                     # Template-Dateien
-├── assets/                        # CSS & JS
-└── languages/                     # Übersetzungen
+peertube video manager/
+├── peertube-video-manager.php # Main file
+├── includes/ # Core classes
+├── shortcodes/ # Shortcode classes
+├── templates/ # Template files
+├── assets/ # CSS & JS
+└── languages/ # Translations
 ```
 
-### Hooks & Filter
+### Hooks & Filters
 
-Das Plugin bietet verschiedene Hooks für Entwickler:
+The plugin offers various hooks for developers:
 
 ```php
-// Filter für Video-Daten vor dem Rendering
+// Filter video data before rendering
 add_filter('pt_vm_video_data', function($video) {
     // Modify video data
     return $video;
 });
 
-// Action nach dem Leeren des Caches
+// Action after clearing the cache
 add_action('pt_vm_cache_cleared', function() {
     // Do something
 });
@@ -258,76 +258,75 @@ add_action('pt_vm_cache_cleared', function() {
 ## Changelog
 
 ### Version 1.0.0
-- Erste Veröffentlichung
-- 4 Shortcodes implementiert
-- Caching-System
-- Admin-Einstellungsseite
-- Deutsche Übersetzung
+- First release
+- 4 shortcodes implemented
+- Caching system
+- Admin settings page
+- German translation
 
 ## Support
 
-Bei Fragen oder Problemen:
+If you have any questions or problems:
 
-1. Überprüfen Sie die [Dokumentation](docs/USAGE_DE.md)
-2. Aktivieren Sie WP_DEBUG für detaillierte Fehler
-3. Erstellen Sie ein [Issue auf GitHub](https://github.com/yarkolife/wp-peertube-plugin/issues)
+1. Check the [Documentation](docs/USAGE_DE.md)
+2. Enable WP_DEBUG for detailed errors
+3. Create an [Issue on GitHub](https://github.com/yarkolife/wp-peertube-plugin/issues)
 
-## Beitragen
+## Contribute
 
-Beiträge sind willkommen! Bitte:
+Contributions are welcome! Please:
 
-1. Forken Sie das [Repository](https://github.com/yarkolife/wp-peertube-plugin)
-2. Erstellen Sie einen Feature-Branch (`git checkout -b feature/AmazingFeature`)
-3. Committen Sie Ihre Änderungen (`git commit -m 'Add some AmazingFeature'`)
-4. Pushen Sie zum Branch (`git push origin feature/AmazingFeature`)
-5. Öffnen Sie einen [Pull Request](https://github.com/yarkolife/wp-peertube-plugin/pulls)
+1. Fork the [repository](https://github.com/yarkolife/wp-peertube-plugin)
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a [Pull Request](https://github.com/yarkolife/wp-peertube-plugin/pulls)
 
-## Lizenz
+## License
 
-GPL v2 oder höher
+GPL v2 or higher
 
 ## Credits
 
-Entwickelt für die Integration von PeerTube-Videos in WordPress. Unterstützt benutzerdefinierte Plugin-Daten aus `peertube-plugin-okas-dev`.
+Designed to integrate PeerTube videos into WordPress. Supports custom plugin data from `peertube-plugin-okas-dev`.
 
-## Technische Details
+## Technical details
 
-### API-Endpunkte
+### API endpoints
 
-Das Plugin verwendet folgende PeerTube API-Endpunkte:
+The plugin uses the following PeerTube API endpoints:
 
-- `GET /api/v1/videos` - Liste aller Videos
-- `GET /api/v1/videos/{id}` - Einzelnes Video
-- `GET /api/v1/video-channels/{handle}/videos` - Kanal-Videos
-- `GET /api/v1/search/videos` - Video-Suche
-- `GET /api/v1/config` - Instanz-Konfiguration
+- `GET /api/v1/videos` - List of all videos
+- `GET /api/v1/videos/{id}` - Single video
+- `GET /api/v1/video-channels/{handle}/videos` - Channel videos
+- `GET /api/v1/search/videos` - Video search
+- `GET /api/v1/config` - Instance configuration
 
-### Sicherheit
+### Security
 
-- Alle Benutzereingaben werden sanitisiert
-- Ausgaben werden escaped
-- Nonces für AJAX-Anfragen
-- Capability-Checks für Admin-Funktionen
-- CORS-konforme API-Anfragen
+- All user input is sanitized
+- Expenses are escaped
+- Nonces for AJAX requests
+- Capability checks for admin functions
+- CORS compliant API requests
 
-### Browser-Kompatibilität
+### Browser compatibility
 
 - Chrome/Edge (Chromium) ✓
 - Firefox ✓
 - Safari ✓
-- Mobile Browser ✓
+- Mobile browsers ✓
 
-## Mitwirken
+## Contribute
 
-Beiträge sind willkommen! Bitte:
+Contributions are welcome! Please:
 
-1. Forken Sie das Repository
-2. Erstellen Sie einen Feature-Branch
-3. Committen Sie Ihre Änderungen
-4. Pushen Sie zum Branch
-5. Erstellen Sie einen Pull Request
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a pull request
 
-## Autor
+## Author
 
-Entwickelt mit ❤️ für die PeerTube-Community
-
+Developed with ❤️ for the PeerTube community

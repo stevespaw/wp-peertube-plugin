@@ -60,10 +60,10 @@ class PT_Last_Videos {
 		$result = $api->get_videos( $params );
 
 		if ( empty( $result['data'] ) ) {
-			return '<p class="pt-no-videos">' . esc_html__( 'Keine Videos gefunden.', 'peertube-video-manager' ) . '</p>';
+			return '<p class="pt-no-videos">' . esc_html__( 'No videos found.', 'peertube-video-manager' ) . '</p>';
 		}
 
-		$base_url = get_option( 'pt_vm_base_url', 'https://lokalmedial.de' );
+		$base_url = get_option( 'pt_vm_base_url', 'https://video3.cappital.co' );
 
 		ob_start();
 		$grid_class = 'pt-video-grid';

@@ -100,7 +100,7 @@ $video_number       = $plugin_data['videoNumber'];
 				<?php if ( ! empty( $sender_responsible ) ) : ?>
 					<div class="pt-meta-item">
 						<?php echo PT_Formatter::get_svg_icon( 'person', 16 ); ?>
-						<span class="pt-meta-label"><?php esc_html_e( 'Sendeverantwortung:', 'peertube-video-manager' ); ?></span>
+						<span class="pt-meta-label"><?php esc_html_e( 'Broadcasting responsibility:', 'peertube-video-manager' ); ?></span>
 						<span class="pt-meta-value"><?php echo esc_html( $sender_responsible ); ?></span>
 					</div>
 				<?php endif; ?>
@@ -154,7 +154,7 @@ $video_number       = $plugin_data['videoNumber'];
 		
 		<?php if ( ! empty( $description ) ) : ?>
 			<div class="pt-video-description">
-				<h2><?php esc_html_e( 'Beschreibung', 'peertube-video-manager' ); ?></h2>
+				<h2><?php esc_html_e( 'Description', 'peertube-video-manager' ); ?></h2>
 				<div class="pt-description-content">
 					<?php echo wp_kses_post( $description ); ?>
 				</div>
@@ -163,9 +163,9 @@ $video_number       = $plugin_data['videoNumber'];
 		
 		<div class="pt-video-actions">
 			<?php
-			$button_text = get_option( 'pt_vm_peertube_button_text', __( 'Auf PeerTube ansehen', 'peertube-video-manager' ) );
+			$button_text = get_option( 'pt_vm_peertube_button_text', __( 'Watch on Media Platform', 'peertube-video-manager' ) );
 			if ( empty( $button_text ) ) {
-				$button_text = __( 'Auf PeerTube ansehen', 'peertube-video-manager' );
+				$button_text = __( 'Watch on Media Platform', 'peertube-video-manager' );
 			}
 			?>
 			<a href="<?php echo esc_url( $video_url ); ?>" 

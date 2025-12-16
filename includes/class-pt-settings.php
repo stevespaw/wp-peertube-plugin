@@ -273,10 +273,10 @@ class PT_Settings {
 			add_settings_error(
 				'pt_vm_base_url',
 				'invalid_url',
-				__( 'Bitte geben Sie eine gültige URL ein (http:// oder https://).', 'peertube-video-manager' ),
+				__( 'Please enter a valid URL (http:// or https://).', 'peertube-video-manager' ),
 				'error'
 			);
-			return get_option( 'pt_vm_base_url', 'https://lokalmedial.de' );
+			return get_option( 'pt_vm_base_url', 'https://video3.cappital.co' );
 		}
 		
 		return $url;
@@ -292,7 +292,7 @@ class PT_Settings {
 			return;
 		}
 
-		$base_url          = get_option( 'pt_vm_base_url', 'https://lokalmedial.de' );
+		$base_url          = get_option( 'pt_vm_base_url', 'https://video3.cappital.co' );
 		$default_channels  = get_option( 'pt_vm_default_channels', '' );
 		$cache_time_videos = get_option( 'pt_vm_cache_time_videos', 5 );
 		$cache_time_config = get_option( 'pt_vm_cache_time_config', 24 );
@@ -301,13 +301,13 @@ class PT_Settings {
 		$redirect_wp_search = get_option( 'pt_vm_redirect_wp_search', false );
 		$search_page_id    = get_option( 'pt_vm_search_page_id', 0 );
 		$video_page_id     = get_option( 'pt_vm_video_page_id', 0 );
-		$peertube_button_text = get_option( 'pt_vm_peertube_button_text', __( 'Auf PeerTube ansehen', 'peertube-video-manager' ) );
+		$peertube_button_text = get_option( 'pt_vm_peertube_button_text', __( 'Watch on Media Platform', 'peertube-video-manager' ) );
 		$button_color      = get_option( 'pt_vm_button_color', '#1e40af' );
 		$button_hover_color = get_option( 'pt_vm_button_hover_color', '#f59e0b' );
 		$button_text_color = get_option( 'pt_vm_button_text_color', '#ffffff' );
-		$wp_search_section_title = get_option( 'pt_vm_wp_search_section_title', __( 'PeerTube Videos', 'peertube-video-manager' ) );
-		$wp_search_wp_option_text = get_option( 'pt_vm_wp_search_wp_option_text', __( 'Auf der Webseite suchen', 'peertube-video-manager' ) );
-		$wp_search_peertube_option_text = get_option( 'pt_vm_wp_search_peertube_option_text', __( 'In Mediathek LokalMedial.de suchen', 'peertube-video-manager' ) );
+		$wp_search_section_title = get_option( 'pt_vm_wp_search_section_title', __( 'Media Platform', 'peertube-video-manager' ) );
+		$wp_search_wp_option_text = get_option( 'pt_vm_wp_search_wp_option_text', __( 'Search on the website', 'peertube-video-manager' ) );
+		$wp_search_peertube_option_text = get_option( 'pt_vm_wp_search_peertube_option_text', __( 'Search in the media library', 'peertube-video-manager' ) );
 		?>
 		<div class="wrap">
 			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
@@ -316,7 +316,7 @@ class PT_Settings {
 			
 			<?php if ( isset( $_GET['settings-updated'] ) ) : ?>
 				<div class="notice notice-success is-dismissible">
-					<p><?php esc_html_e( 'Einstellungen gespeichert.', 'peertube-video-manager' ); ?></p>
+					<p><?php esc_html_e( 'Settings saved.', 'peertube-video-manager' ); ?></p>
 				</div>
 			<?php endif; ?>
 			
@@ -331,7 +331,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_base_url">
-								<?php esc_html_e( 'PeerTube Instanz URL', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Media Platform Instance URL', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -342,11 +342,11 @@ class PT_Settings {
 								   class="regular-text"
 								   required>
 							<p class="description">
-								<?php esc_html_e( 'Die vollständige URL Ihrer PeerTube-Instanz (z.B. https://lokalmedial.de)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'The full URL of your MEdia Platform instance (e.g., https://video3.cappital.co)', 'peertube-video-manager' ); ?>
 							</p>
 							<p>
 								<button type="button" id="pt-test-connection" class="button">
-									<?php esc_html_e( 'Verbindung testen', 'peertube-video-manager' ); ?>
+									<?php esc_html_e( 'Test connection', 'peertube-video-manager' ); ?>
 								</button>
 								<span id="pt-connection-result"></span>
 							</p>
@@ -356,7 +356,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_default_channels">
-								<?php esc_html_e( 'Standard-Kanäle', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Standard channels', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -365,7 +365,7 @@ class PT_Settings {
 									  rows="5" 
 									  class="large-text"><?php echo esc_textarea( $default_channels ); ?></textarea>
 							<p class="description">
-								<?php esc_html_e( 'Liste der Kanal-Handles, einen pro Zeile (z.B. ok_dessau, ok_magdeburg). Wird für [pt-latest-per-channel] verwendet, wenn kein channels-Attribut angegeben ist.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'List of channel handles, one per line (e.g., ok_dessau, ok_magdeburg). Used for [pt-latest-per-channel] when no channels attribute is specified.', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -373,7 +373,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_cache_time_videos">
-								<?php esc_html_e( 'Cache-Zeit für Videos (Minuten)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Cache time for videos (minutes)', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -385,7 +385,7 @@ class PT_Settings {
 								   max="1440" 
 								   class="small-text">
 							<p class="description">
-								<?php esc_html_e( 'Wie lange Video-Listen zwischengespeichert werden (Standard: 5 Minuten)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'How long video lists are cached (default: 5 minutes)', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -393,7 +393,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_cache_time_config">
-								<?php esc_html_e( 'Cache-Zeit für Konfiguration (Stunden)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Cache time for configuration (hours)', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -405,7 +405,7 @@ class PT_Settings {
 								   max="168" 
 								   class="small-text">
 							<p class="description">
-								<?php esc_html_e( 'Wie lange Kategorien und Konfiguration zwischengespeichert werden (Standard: 24 Stunden)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'How long categories and configurations are cached (default: 24 hours)', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -413,7 +413,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_videos_per_page">
-								<?php esc_html_e( 'Videos pro Seite', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Videos per page', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -425,7 +425,7 @@ class PT_Settings {
 								   max="100" 
 								   class="small-text">
 							<p class="description">
-								<?php esc_html_e( 'Standard-Anzahl von Videos, die angezeigt werden (Standard: 8)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Standard number of videos to be displayed (default: 8)', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -433,7 +433,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_show_views">
-								<?php esc_html_e( 'Aufrufe anzeigen', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Show views', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -443,10 +443,10 @@ class PT_Settings {
 									   name="pt_vm_show_views" 
 									   value="1" 
 									   <?php checked( $show_views, true ); ?>>
-								<?php esc_html_e( 'Anzahl der Aufrufe in Video-Karten und Detailansicht anzeigen', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Display the number of views in video cards and detail view.', 'peertube-video-manager' ); ?>
 							</label>
 							<p class="description">
-								<?php esc_html_e( 'Wenn aktiviert, wird die Anzahl der Aufrufe bei jedem Video angezeigt.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'When enabled, the number of views will be displayed for each video.', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -454,7 +454,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_redirect_wp_search">
-								<?php esc_html_e( 'PeerTube-Suche in WordPress-Suchform', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Media Platform search in WordPress search form', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -464,10 +464,10 @@ class PT_Settings {
 									   name="pt_vm_redirect_wp_search" 
 									   value="1" 
 									   <?php checked( $redirect_wp_search, true ); ?>>
-								<?php esc_html_e( 'PeerTube-Suche in Standard-WordPress-Suchform hinzufügen', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Add Media Platform search to the standard WordPress search form.', 'peertube-video-manager' ); ?>
 							</label>
 							<p class="description">
-								<?php esc_html_e( 'Wenn aktiviert, wird in der Standard-WordPress-Suchform ein Checkbox "In PeerTube-Videos suchen" hinzugefügt. Wenn aktiviert, wird die Suche auf die PeerTube-Suchseite umgeleitet. Wenn nicht aktiviert, funktioniert die Standard-WordPress-Suche normal.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'When enabled, a "Search in Media Platform videos" checkbox will be added to the standard WordPress search form. If checked, the search will be redirected to the Media Platform search page. If unchecked, the standard WordPress search will function as normal.', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -475,7 +475,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_wp_search_section_title">
-								<?php esc_html_e( 'Titel des PeerTube-Bereichs', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Title of the Media Platform section', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -485,7 +485,7 @@ class PT_Settings {
 								   value="<?php echo esc_attr( $wp_search_section_title ); ?>" 
 								   class="regular-text">
 							<p class="description">
-								<?php esc_html_e( 'Titel des Abschnitts mit PeerTube-Videos auf der WordPress-Suchergebnisseite.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Title of the section containing Media Platform videos on the WordPress search results page.', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -493,7 +493,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_wp_search_wp_option_text">
-								<?php esc_html_e( 'Text für Option "Auf der Website suchen"', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Text for the "Search on the website" option', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -503,7 +503,7 @@ class PT_Settings {
 								   value="<?php echo esc_attr( $wp_search_wp_option_text ); ?>" 
 								   class="regular-text">
 							<p class="description">
-								<?php esc_html_e( 'Text für die erste Option im Dropdown der Suchform.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Text for the first option in the search form dropdown menu.', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -511,7 +511,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_wp_search_peertube_option_text">
-								<?php esc_html_e( 'Text für Option "In PeerTube-Videos suchen"', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Text for the option "Search in Media Platform videos"', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -521,7 +521,7 @@ class PT_Settings {
 								   value="<?php echo esc_attr( $wp_search_peertube_option_text ); ?>" 
 								   class="regular-text">
 							<p class="description">
-								<?php esc_html_e( 'Text für die zweite Option im Dropdown der Suchform.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Text for the second option in the search forms dropdown menu.', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -529,7 +529,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_search_page_id">
-								<?php esc_html_e( 'Seite für Suche', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Search page', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -538,12 +538,12 @@ class PT_Settings {
 								'name'             => 'pt_vm_search_page_id',
 								'id'               => 'pt_vm_search_page_id',
 								'selected'         => $search_page_id,
-								'show_option_none' => __( '— Seite auswählen —', 'peertube-video-manager' ),
+								'show_option_none' => __( '— Select a page —', 'peertube-video-manager' ),
 								'option_none_value' => '0',
 							) );
 							?>
 							<p class="description">
-								<?php esc_html_e( 'Wählen Sie die Seite aus, auf der die Suche angezeigt werden soll. Diese Seite sollte die Shortcodes [pt-search] und [pt-search-results] enthalten. Wenn keine Seite ausgewählt ist, wird die aktuelle Seite verwendet.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Select the page where the search results should be displayed. This page should contain the shortcodes [pt-search] and [pt-search-results]. If no page is selected, the current page will be used.', 'peertube-video-manager' ); ?>
 							</p>
 							<?php if ( $search_page_id > 0 ) : ?>
 								<?php
@@ -552,27 +552,27 @@ class PT_Settings {
 								?>
 									<p>
 										<a href="<?php echo esc_url( get_edit_post_link( $search_page_id ) ); ?>" target="_blank">
-											<?php esc_html_e( 'Seite bearbeiten', 'peertube-video-manager' ); ?>
+											<?php esc_html_e( 'Edit page', 'peertube-video-manager' ); ?>
 										</a> |
 										<a href="<?php echo esc_url( get_permalink( $search_page_id ) ); ?>" target="_blank">
-											<?php esc_html_e( 'Seite ansehen', 'peertube-video-manager' ); ?>
+											<?php esc_html_e( 'View page', 'peertube-video-manager' ); ?>
 										</a>
 									</p>
 								<?php else : ?>
 									<p class="description" style="color: #d63638;">
-										<?php esc_html_e( 'Die ausgewählte Seite existiert nicht mehr oder ist nicht veröffentlicht.', 'peertube-video-manager' ); ?>
+										<?php esc_html_e( 'The selected page no longer exists or has not been published.', 'peertube-video-manager' ); ?>
 									</p>
 								<?php endif; ?>
 							<?php else : ?>
 								<p class="description">
-									<strong><?php esc_html_e( 'Hinweis:', 'peertube-video-manager' ); ?></strong>
-									<?php esc_html_e( 'Erstellen Sie eine Seite mit den Shortcodes [pt-search placeholder="Suche..."] und [pt-search-results per_page="12"] und wählen Sie sie hier aus.', 'peertube-video-manager' ); ?>
+									<strong><?php esc_html_e( 'A notice:', 'peertube-video-manager' ); ?></strong>
+									<?php esc_html_e( 'Create a page with the shortcodes [pt-search placeholder="Search..."] and [pt-search-results per_page="12"] and select it here.', 'peertube-video-manager' ); ?>
 								</p>
 								<p>
 									<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="display: inline;">
 										<?php wp_nonce_field( 'pt_vm_create_search_page', 'pt_vm_create_page_nonce' ); ?>
 										<input type="hidden" name="action" value="pt_vm_create_search_page">
-										<?php submit_button( __( 'Seite automatisch erstellen', 'peertube-video-manager' ), 'secondary', 'submit', false ); ?>
+										<?php submit_button( __( 'Automatically create page', 'peertube-video-manager' ), 'secondary', 'submit', false ); ?>
 									</form>
 								</p>
 							<?php endif; ?>
@@ -582,7 +582,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_video_page_id">
-								<?php esc_html_e( 'Seite für Video-Ansicht', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Page for video viewing', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -591,12 +591,12 @@ class PT_Settings {
 								'name'             => 'pt_vm_video_page_id',
 								'id'               => 'pt_vm_video_page_id',
 								'selected'         => $video_page_id,
-								'show_option_none' => __( '— Seite auswählen —', 'peertube-video-manager' ),
+								'show_option_none' => __( '— Select a page —', 'peertube-video-manager' ),
 								'option_none_value' => '0',
 							) );
 							?>
 							<p class="description">
-								<?php esc_html_e( 'Wählen Sie die Seite aus, auf der Videos im Detail angezeigt werden sollen. Diese Seite wird automatisch verwendet, wenn auf ein Video aus den Listen geklickt wird.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Select the page where videos should be displayed in detail. This page will be used automatically when a video is clicked from the lists.', 'peertube-video-manager' ); ?>
 							</p>
 							<?php if ( $video_page_id > 0 ) : ?>
 								<?php
@@ -605,27 +605,27 @@ class PT_Settings {
 								?>
 									<p>
 										<a href="<?php echo esc_url( get_edit_post_link( $video_page_id ) ); ?>" target="_blank">
-											<?php esc_html_e( 'Seite bearbeiten', 'peertube-video-manager' ); ?>
+											<?php esc_html_e( 'Edit page', 'peertube-video-manager' ); ?>
 										</a> |
 										<a href="<?php echo esc_url( get_permalink( $video_page_id ) ); ?>" target="_blank">
-											<?php esc_html_e( 'Seite ansehen', 'peertube-video-manager' ); ?>
+											<?php esc_html_e( 'View page', 'peertube-video-manager' ); ?>
 										</a>
 									</p>
 								<?php else : ?>
 									<p class="description" style="color: #d63638;">
-										<?php esc_html_e( 'Die ausgewählte Seite existiert nicht mehr oder ist nicht veröffentlicht.', 'peertube-video-manager' ); ?>
+										<?php esc_html_e( 'The selected page no longer exists or has not been published.', 'peertube-video-manager' ); ?>
 									</p>
 								<?php endif; ?>
 							<?php else : ?>
 								<p class="description">
 									<strong><?php esc_html_e( 'Hinweis:', 'peertube-video-manager' ); ?></strong>
-									<?php esc_html_e( 'Wenn beim Aktivieren des Plugins keine Seite gefunden wurde, wird eine neue Seite automatisch erstellt.', 'peertube-video-manager' ); ?>
+									<?php esc_html_e( 'If no page is found when the plugin is activated, a new page will be created automatically.', 'peertube-video-manager' ); ?>
 								</p>
 								<p>
 									<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="display: inline;">
 										<?php wp_nonce_field( 'pt_vm_create_video_page', 'pt_vm_create_video_page_nonce' ); ?>
 										<input type="hidden" name="action" value="pt_vm_create_video_page">
-										<?php submit_button( __( 'Seite automatisch erstellen', 'peertube-video-manager' ), 'secondary', 'submit', false ); ?>
+										<?php submit_button( __( 'Automatically create page', 'peertube-video-manager' ), 'secondary', 'submit', false ); ?>
 									</form>
 								</p>
 							<?php endif; ?>
@@ -635,7 +635,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_peertube_button_text">
-								<?php esc_html_e( 'Text der PeerTube-Button', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Text of the Media Platform button', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -645,7 +645,7 @@ class PT_Settings {
 								   value="<?php echo esc_attr( $peertube_button_text ); ?>" 
 								   class="regular-text">
 							<p class="description">
-								<?php esc_html_e( 'Text, der auf dem Button "Auf PeerTube ansehen" angezeigt wird.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Text that is displayed on the "Watch on Media Platform" button.', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -653,7 +653,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_button_color">
-								<?php esc_html_e( 'Farbe der Buttons', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Color of the buttons', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -664,7 +664,7 @@ class PT_Settings {
 								   class="pt-color-picker"
 								   data-default-color="#1e40af">
 							<p class="description">
-								<?php esc_html_e( 'Hintergrundfarbe der Buttons (Standard: dunkelblau)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Background color of the buttons (default: dark blue)', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -672,7 +672,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_button_hover_color">
-								<?php esc_html_e( 'Farbe der Buttons bei Hover', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Color of the buttons on hover', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -683,7 +683,7 @@ class PT_Settings {
 								   class="pt-color-picker"
 								   data-default-color="#f59e0b">
 							<p class="description">
-								<?php esc_html_e( 'Hintergrundfarbe der Buttons beim Hovern (Standard: orange-gelb)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Background color of the buttons when hovering (default: orange-yellow)', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -691,7 +691,7 @@ class PT_Settings {
 					<tr>
 						<th scope="row">
 							<label for="pt_vm_button_text_color">
-								<?php esc_html_e( 'Textfarbe der Buttons', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Text color of the buttons', 'peertube-video-manager' ); ?>
 							</label>
 						</th>
 						<td>
@@ -702,47 +702,47 @@ class PT_Settings {
 								   class="pt-color-picker"
 								   data-default-color="#ffffff">
 							<p class="description">
-								<?php esc_html_e( 'Textfarbe der Buttons (Standard: weiß)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'Text color of the buttons (default: white)', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
 				</table>
 				
-				<?php submit_button( __( 'Einstellungen speichern', 'peertube-video-manager' ) ); ?>
+				<?php submit_button( __( 'Save settings', 'peertube-video-manager' ) ); ?>
 			</form>
 			
 			<hr>
 			
-			<h2><?php esc_html_e( 'Cache-Verwaltung', 'peertube-video-manager' ); ?></h2>
-			<p><?php esc_html_e( 'Löschen Sie den Cache, um aktualisierte Daten von PeerTube zu laden.', 'peertube-video-manager' ); ?></p>
+			<h2><?php esc_html_e( 'Cache-Management', 'peertube-video-manager' ); ?></h2>
+			<p><?php esc_html_e( 'Clear your cache to load updated data from PeerTube.', 'peertube-video-manager' ); ?></p>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<?php wp_nonce_field( 'pt_vm_clear_cache', 'pt_vm_cache_nonce' ); ?>
 				<input type="hidden" name="action" value="pt_vm_clear_cache">
-				<?php submit_button( __( 'Cache löschen', 'peertube-video-manager' ), 'secondary', 'submit', false ); ?>
+				<?php submit_button( __( 'Clear cache', 'peertube-video-manager' ), 'secondary', 'submit', false ); ?>
 			</form>
 			
 			<hr>
 			
-			<h2><?php esc_html_e( 'Shortcode-Beispiele', 'peertube-video-manager' ); ?></h2>
+			<h2><?php esc_html_e( 'Shortcode examples', 'peertube-video-manager' ); ?></h2>
 			<ul>
-				<li><code>[pt-last-videos count="8"]</code> - <?php esc_html_e( 'Letzte Videos der Instanz', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-last-videos count="8" columns="2"]</code> - <?php esc_html_e( 'Letzte Videos in 2 Spalten', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-last-videos count="8" columns="1"]</code> - <?php esc_html_e( 'Letzte Videos in einer Spalte', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-latest-per-channel channels="ok_dessau,ok_magdeburg"]</code> - <?php esc_html_e( 'Je ein Video pro Kanal', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-latest-per-channel channels="ok_dessau,ok_magdeburg" columns="3"]</code> - <?php esc_html_e( 'Je ein Video pro Kanal in 3 Spalten', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-channel-videos channel="okmq" count="6"]</code> - <?php esc_html_e( 'Videos eines Kanals', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-channel-videos channel="okmq" count="6" columns="2"]</code> - <?php esc_html_e( 'Videos eines Kanals in 2 Spalten', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-video id="UUID"]</code> - <?php esc_html_e( 'Einzelnes Video mit Details', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-video number="123"]</code> - <?php esc_html_e( 'Video per Video-Nummer', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-channels-ordered channels="ok_dessau,ok_magdeburg"]</code> - <?php esc_html_e( 'Kanäle mit Videos in angegebener Reihenfolge', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-search placeholder="Suche..."]</code> - <?php esc_html_e( 'Suchformular (mit WordPress-Integration)', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-search-results per_page="12"]</code> - <?php esc_html_e( 'Suchergebnisse (unterstützt WordPress-Parameter "s")', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-peertube-search placeholder="Suche..."]</code> - <?php esc_html_e( 'Suchformular nur für PeerTube', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-peertube-search-results per_page="12"]</code> - <?php esc_html_e( 'Suchergebnisse nur für PeerTube (ohne WordPress-Integration)', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-last-videos count="8"]</code> - <?php esc_html_e( 'Latest videos from this instance', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-last-videos count="8" columns="2"]</code> - <?php esc_html_e( 'Latest videos in 2 columns', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-last-videos count="8" columns="1"]</code> - <?php esc_html_e( 'Latest videos in a column', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-latest-per-channel channels="ok_dessau,ok_magdeburg"]</code> - <?php esc_html_e( 'One video per channel', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-latest-per-channel channels="ok_dessau,ok_magdeburg" columns="3"]</code> - <?php esc_html_e( 'One video per channel in 3 columns.', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-channel-videos channel="okmq" count="6"]</code> - <?php esc_html_e( 'Videos from a channel', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-channel-videos channel="okmq" count="6" columns="2"]</code> - <?php esc_html_e( 'Videos from a channel in 2 columns', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-video id="UUID"]</code> - <?php esc_html_e( 'Single video with details', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-video number="123"]</code> - <?php esc_html_e( 'Video per Video Number', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-channels-ordered channels="ok_dessau,ok_magdeburg"]</code> - <?php esc_html_e( 'Channels with videos in the specified order', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-search placeholder="Suche..."]</code> - <?php esc_html_e( 'Search form (with WordPress integration)', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-search-results per_page="12"]</code> - <?php esc_html_e( 'Search results (supports WordPress parameter "s")', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-peertube-search placeholder="Suche..."]</code> - <?php esc_html_e( 'Search form for Media Platform only', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-peertube-search-results per_page="12"]</code> - <?php esc_html_e( 'Search results only for Media Platform (without WordPress integration)', 'peertube-video-manager' ); ?></li>
 			</ul>
 			<p class="description">
-				<strong><?php esc_html_e( 'Hinweis:', 'peertube-video-manager' ); ?></strong>
-				<?php esc_html_e( 'Der Parameter "columns" kann Werte von 1 bis 6 haben oder "auto" (Standard, responsive). Bei "auto" passt sich die Anzahl der Spalten automatisch der Bildschirmgröße an.', 'peertube-video-manager' ); ?>
+				<strong><?php esc_html_e( 'A notice:', 'peertube-video-manager' ); ?></strong>
+				<?php esc_html_e( 'The "columns" parameter can have values ​​from 1 to 6 or "auto" (default, responsive).  When set to "auto," the number of columns automatically adjusts to the screen size.', 'peertube-video-manager' ); ?>
 			</p>
 		</div>
 		<?php
@@ -755,7 +755,7 @@ class PT_Settings {
 	 */
 	public function handle_clear_cache() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Sie haben keine Berechtigung für diese Aktion.', 'peertube-video-manager' ) );
+			wp_die( esc_html__( 'You do not have permission to perform this action.', 'peertube-video-manager' ) );
 		}
 
 		check_admin_referer( 'pt_vm_clear_cache', 'pt_vm_cache_nonce' );
@@ -768,7 +768,7 @@ class PT_Settings {
 			'cache_cleared',
 			sprintf(
 				/* translators: %d: number of cache entries cleared */
-				__( 'Cache geleert! %d Einträge wurden gelöscht.', 'peertube-video-manager' ),
+				__( 'Cache cleared! %d entries have been deleted.', 'peertube-video-manager' ),
 				$count
 			),
 			'success'
@@ -787,18 +787,18 @@ class PT_Settings {
 	 */
 	public function handle_create_search_page() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Sie haben keine Berechtigung für diese Aktion.', 'peertube-video-manager' ) );
+			wp_die( esc_html__( 'You do not have permission to perform this action.', 'peertube-video-manager' ) );
 		}
 
 		check_admin_referer( 'pt_vm_create_search_page', 'pt_vm_create_page_nonce' );
 
 		// Create search page
-		$search_page_content = __( 'Suche in der PeerTube Mediathek', 'peertube-video-manager' ) . "\n\n" .
+		$search_page_content = __( 'Search in the media library', 'peertube-video-manager' ) . "\n\n" .
 			'[pt-search placeholder="' . __( 'Suche...', 'peertube-video-manager' ) . '"]' . "\n\n" .
 			'[pt-search-results per_page="12"]';
 
 		$page_data = array(
-			'post_title'   => __( 'PeerTube Suche', 'peertube-video-manager' ),
+			'post_title'   => __( 'Media Platform Search', 'peertube-video-manager' ),
 			'post_content' => $search_page_content,
 			'post_status'  => 'publish',
 			'post_type'    => 'page',
@@ -812,14 +812,14 @@ class PT_Settings {
 			add_settings_error(
 				'pt_vm_messages',
 				'search_page_created',
-				__( 'Suchseite wurde erfolgreich erstellt!', 'peertube-video-manager' ),
+				__( 'The search page has been created successfully!', 'peertube-video-manager' ),
 				'success'
 			);
 		} else {
 			add_settings_error(
 				'pt_vm_messages',
 				'search_page_error',
-				__( 'Fehler beim Erstellen der Suchseite.', 'peertube-video-manager' ),
+				__( 'Error creating the search page.', 'peertube-video-manager' ),
 				'error'
 			);
 		}
@@ -837,16 +837,16 @@ class PT_Settings {
 	 */
 	public function handle_create_video_page() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Sie haben keine Berechtigung für diese Aktion.', 'peertube-video-manager' ) );
+			wp_die( esc_html__( 'You do not have permission to perform this action.', 'peertube-video-manager' ) );
 		}
 
 		check_admin_referer( 'pt_vm_create_video_page', 'pt_vm_create_video_page_nonce' );
 
 		// Create video page - the shortcode will be added automatically via auto_display_video filter
-		$video_page_content = __( 'PeerTube Video', 'peertube-video-manager' );
+		$video_page_content = __( 'Media Platform Video', 'peertube-video-manager' );
 
 		$page_data = array(
-			'post_title'   => __( 'PeerTube Video', 'peertube-video-manager' ),
+			'post_title'   => __( 'Media Platform Video', 'peertube-video-manager' ),
 			'post_content' => $video_page_content,
 			'post_status'  => 'publish',
 			'post_type'    => 'page',
@@ -860,14 +860,14 @@ class PT_Settings {
 			add_settings_error(
 				'pt_vm_messages',
 				'video_page_created',
-				__( 'Videoseite wurde erfolgreich erstellt!', 'peertube-video-manager' ),
+				__( 'Video page was created successfully!', 'peertube-video-manager' ),
 				'success'
 			);
 		} else {
 			add_settings_error(
 				'pt_vm_messages',
 				'video_page_error',
-				__( 'Fehler beim Erstellen der Videoseite.', 'peertube-video-manager' ),
+				__( 'Error creating the video page.', 'peertube-video-manager' ),
 				'error'
 			);
 		}
@@ -888,7 +888,7 @@ class PT_Settings {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_send_json_error( array(
-				'message' => __( 'Keine Berechtigung.', 'peertube-video-manager' ),
+				'message' => __( 'No authorization.', 'peertube-video-manager' ),
 			) );
 		}
 
@@ -896,7 +896,7 @@ class PT_Settings {
 		
 		if ( empty( $url ) ) {
 			wp_send_json_error( array(
-				'message' => __( 'Keine URL angegeben.', 'peertube-video-manager' ),
+				'message' => __( 'No URL specified.', 'peertube-video-manager' ),
 			) );
 		}
 

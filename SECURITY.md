@@ -1,208 +1,207 @@
-# Sicherheits- und Code-Qualitätsprüfung
+# Security and code quality checking
 
-## Sicherheitsprüfung ✓
+## Security check ✓
 
-### Eingabe-Sanitization
+### Input sanitization
 
-Alle Benutzereingaben werden sanitisiert:
+All user input is sanitized:
 
-- ✓ **URL-Eingaben**: `esc_url_raw()` in class-pt-settings.php
-- ✓ **Text-Eingaben**: `sanitize_text_field()` für alle Shortcode-Attribute
-- ✓ **Textarea-Eingaben**: `sanitize_textarea_field()` für Kanal-Listen
-- ✓ **Numerische Eingaben**: `absint()` für alle Zähler und IDs
-- ✓ **GET/POST-Parameter**: Validierung und Sanitization in allen Shortcodes
+- ✓ **URL inputs**: `esc_url_raw()` in class-pt-settings.php
+- ✓ **Text inputs**: `sanitize_text_field()` for all shortcode attributes
+- ✓ **Textarea inputs**: `sanitize_textarea_field()` for channel lists
+- ✓ **Numerical inputs**: `absint()` for all counters and IDs
+- ✓ **GET/POST parameters**: Validation and sanitization in all shortcodes
 
-### Ausgabe-Escaping
+### Output escaping
 
-Alle Ausgaben werden escaped:
+All outputs are escaped:
 
-- ✓ **HTML-Ausgaben**: `esc_html()` für alle Texte
-- ✓ **HTML-Attribute**: `esc_attr()` für alle Attribute
-- ✓ **URLs**: `esc_url()` für alle Links
-- ✓ **Rich-Content**: `wp_kses_post()` und `wp_kses()` für Video-Beschreibungen
+- ✓ **HTML output**: `esc_html()` for all texts
+- ✓ **HTML attributes**: `esc_attr()` for all attributes
+- ✓ **URLs**: `esc_url()` for all links
+- ✓ **Rich Content**: `wp_kses_post()` and `wp_kses()` for video descriptions
 
-### Nonce-Überprüfung
+### Nonce verification
 
-- ✓ **Settings-Formular**: WordPress Settings API mit automatischen Nonces
-- ✓ **AJAX-Anfragen**: Nonce-Überprüfung in `ajax_test_connection()` und `handle_clear_cache()`
-- ✓ **Admin-Actions**: `check_admin_referer()` für Cache-Clearing
+- ✓ **Settings form**: WordPress Settings API with automatic nonces
+- ✓ **AJAX requests**: Nonce checking in `ajax_test_connection()` and `handle_clear_cache()`
+- ✓ **Admin Actions**: `check_admin_referer()` for cache clearing
 
-### Capability-Checks
+### Capability checks
 
-- ✓ **Admin-Seite**: `current_user_can('manage_options')` in allen Admin-Methoden
-- ✓ **AJAX-Handler**: Capability-Check vor Verarbeitung
-- ✓ **Settings**: Nur Admins können Einstellungen ändern
+- ✓ **Admin page**: `current_user_can('manage_options')` in all admin methods
+- ✓ **AJAX handler**: Capability check before processing
+- ✓ **Settings**: Only admins can change settings
 
-### SQL-Injection-Schutz
+### SQL injection protection
 
-- ✓ **Prepared Statements**: Verwendung von `$wpdb->prepare()` in `flush_all()`
-- ✓ **WordPress-API**: Ausschließliche Nutzung von WP-Funktionen für Datenbankoperationen
+- ✓ **Prepared Statements**: Use of `$wpdb->prepare()` in `flush_all()`
+- ✓ **WordPress API**: Exclusive use of WP functions for database operations
 
-### XSS-Schutz
+### XSS protection
 
-- ✓ **Template-Ausgaben**: Alle Variablen escaped
-- ✓ **JavaScript**: Keine dynamische Code-Generierung
-- ✓ **Admin-Scripts**: Lokalisierung mit `wp_localize_script()` für sichere Datenübergabe
+- ✓ **Template output**: All variables escaped
+- ✓ **JavaScript**: No dynamic code generation
+- ✓ **Admin scripts**: Localization with `wp_localize_script()` for secure data transfer
 
-### CSRF-Schutz
+### CSRF protection
 
-- ✓ **Forms**: WordPress Nonces für alle Formulare
-- ✓ **AJAX**: Nonce-Validierung für alle AJAX-Anfragen
+- ✓ **Forms**: WordPress nonces for all forms
+- ✓ **AJAX**: Nonce validation for all AJAX requests
 
-### API-Sicherheit
+### API security
 
-- ✓ **Timeout**: 15 Sekunden Timeout für alle Anfragen
-- ✓ **Error-Handling**: Graceful Degradation bei API-Fehlern
-- ✓ **Rate-Limiting**: Respektierung der PeerTube API-Limits
-- ✓ **CORS**: Konforme API-Anfragen
+- ✓ **Timeout**: 15 second timeout for all requests
+- ✓ **Error handling**: Graceful degradation in case of API errors
+- ✓ **Rate Limiting**: Respect PeerTube API limits
+- ✓ **CORS**: Compliant API requests
 
-### Datei-Sicherheit
+### File security
 
-- ✓ **Direct Access**: `if ( ! defined( 'ABSPATH' ) )` in allen Dateien
-- ✓ **File-Includes**: Keine dynamischen Includes
-- ✓ **Template-Loading**: Sichere Template-Pfade mit `file_exists()`
+- ✓ **Direct Access**: `if ( ! defined( 'ABSPATH' ) )` in all files
+- ✓ **File Includes**: No dynamic includes
+- ✓ **Template loading**: Secure template paths with `file_exists()`
 
-## Code-Qualität ✓
+## Code Quality ✓
 
 ### WordPress Coding Standards
 
-- ✓ **Namenskonventionen**: Präfix `PT_` für alle Klassen, `pt_vm_` für Funktionen/Optionen
-- ✓ **Dokumentation**: PHPDoc für alle Klassen und Methoden
-- ✓ **Spacing/Tabs**: WordPress-konforme Formatierung
-- ✓ **Hooks**: Proper use von Actions und Filters
+- ✓ **Naming conventions**: Prefix `PT_` for all classes, `pt_vm_` for functions/options
+- ✓ **Documentation**: PHPDoc for all classes and methods
+- ✓ **Spacing/Tabs**: WordPress compliant formatting
+- ✓ **Hooks**: Proper use of actions and filters
 
-### Architektur
+### Architecture
 
-- ✓ **Separation of Concerns**: Logik in Klassen, Darstellung in Templates
-- ✓ **DRY-Prinzip**: Wiederverwendbare Komponenten
-- ✓ **Single Responsibility**: Jede Klasse hat eine klare Aufgabe
-- ✓ **Dependency Injection**: API-Instanz wird übergeben wo nötig
+- ✓ **Separation of Concerns**: Logic in classes, representation in templates
+- ✓ **DRY principle**: Reusable components
+- ✓ **Single Responsibility**: Each class has a clear task
+- ✓ **Dependency Injection**: API instance is passed where necessary
 
 ### Performance
 
-- ✓ **Caching**: Transient-basiert für alle API-Anfragen
-- ✓ **Lazy Loading**: `loading="lazy"` für alle Bilder
-- ✓ **Minification**: CSS optimiert für Produktion
-- ✓ **Database**: Effiziente Queries, minimale DB-Zugriffe
+- ✓ **Caching**: Transient-based for all API requests
+- ✓ **Lazy Loading**: `loading="lazy"` for all images
+- ✓ **Minification**: CSS optimized for production
+- ✓ **Database**: Efficient queries, minimal DB accesses
 
-### Error-Handling
+### Error handling
 
-- ✓ **Graceful Degradation**: Keine PHP-Fehler bei API-Problemen
-- ✓ **User-Feedback**: Klare Fehlermeldungen auf Deutsch
-- ✓ **Debug-Logging**: Fehler werden nur bei `WP_DEBUG` geloggt
-- ✓ **Fallbacks**: Alternative Ausgaben bei fehlenden Daten
+- ✓ **Graceful Degradation**: No PHP errors for API issues
+- ✓ **User feedback**: Clear error messages in German
+- ✓ **Debug logging**: Errors are only logged with `WP_DEBUG`
+- ✓ **Fallbacks**: Alternative outputs if data is missing
 
-### Kompatibilität
+### Compatibility
 
-- ✓ **WordPress 6.0+**: Getestet mit aktuellen WP-Versionen
-- ✓ **PHP 7.4+**: Moderne PHP-Features, abwärtskompatibel
-- ✓ **MySQL/MariaDB**: Standard WordPress-Datenbank
-- ✓ **Themes**: Framework-agnostisch, funktioniert mit allen Themes
+- ✓ **WordPress 6.0+**: Tested with current WP versions
+- ✓ **PHP 7.4+**: Modern PHP features, backwards compatible
+- ✓ **MySQL/MariaDB**: Standard WordPress database
+- ✓ **Themes**: Framework agnostic, works with all themes
 
-### Browser-Kompatibilität
+### Browser compatibility
 
 - ✓ **Modern Browsers**: Chrome, Firefox, Safari, Edge
-- ✓ **Responsive**: CSS Grid mit Fallbacks
-- ✓ **Progressive Enhancement**: Funktioniert ohne JavaScript
-- ✓ **Accessibility**: Semantisches HTML, ARIA-Labels
+- ✓ **Responsive**: CSS Grid with fallbacks
+- ✓ **Progressive Enhancement**: Works without JavaScript
+- ✓ **Accessibility**: Semantic HTML, ARIA labels
 
-## Sicherheitsbewertung
+## Security rating
 
-### Risikobewertung
+### Risk assessment
 
-| Kategorie | Risiko | Schutz | Status |
+| Category | Risk | Protection | Status |
 |-----------|--------|--------|--------|
-| SQL Injection | Niedrig | Prepared Statements | ✓ |
-| XSS | Niedrig | Output Escaping | ✓ |
-| CSRF | Niedrig | Nonces | ✓ |
-| Privilege Escalation | Niedrig | Capability Checks | ✓ |
-| Information Disclosure | Niedrig | Error Handling | ✓ |
-| DoS | Mittel | Rate Limiting, Caching | ✓ |
+| SQL Injection | Low | Prepared Statements | ✓ |
+| XSS | Low | Output escaping | ✓ |
+| CSRF | Low | Nonces | ✓ |
+| Privilege Escalation | Low | Capability checks | ✓ |
+| Information Disclosure | Low | Error Handling | ✓ |
+| DoS | Medium | Rate Limiting, Caching | ✓ |
 
-### Externe Abhängigkeiten
+### External dependencies
 
-| Abhängigkeit | Zweck | Sicherheit |
+| Dependency | Purpose | Security |
 |--------------|-------|------------|
-| WordPress Core | Framework | Regelmäßige Updates |
-| PeerTube API | Video-Daten | HTTPS, Read-Only |
-| Browser APIs | JavaScript | Standard-Konform |
+| WordPress Core | Framework | Regular Updates |
+| PeerTube API | Video data | HTTPS, Read Only |
+| Browser APIs | JavaScript | Standard Compliant |
 
-### Datenschutz (DSGVO)
+### Data protection (GDPR)
 
-- ✓ **Keine Cookies**: Plugin setzt keine Cookies
-- ✓ **Keine Tracking**: Keine Nutzer-Tracking-Mechanismen
-- ✓ **Externe Inhalte**: Videos von PeerTube (selbst gehostet)
-- ✓ **Datenminimierung**: Nur notwendige Daten gecacht
+- ✓ **No Cookies**: Plugin does not set cookies
+- ✓ **No Tracking**: No user tracking mechanisms
+- ✓ **External Content**: Videos from PeerTube (self-hosted)
+- ✓ **Data Minimization**: Only necessary data cached
 
-### Empfohlene Zusatzmaßnahmen
+### Recommended additional measures
 
-1. **SSL/TLS**: Betreiben Sie WordPress und PeerTube über HTTPS
-2. **Firewall**: Web Application Firewall (WAF) empfohlen
-3. **Updates**: Halten Sie WordPress und das Plugin aktuell
-4. **Backups**: Regelmäßige Backups der WordPress-Installation
-5. **Monitoring**: Log-Überwachung für ungewöhnliche Aktivitäten
+1. **SSL/TLS**: Run WordPress and PeerTube over HTTPS
+2. **Firewall**: Web Application Firewall (WAF) recommended
+3. **Updates**: Keep WordPress and the plugin up to date
+4. **Backups**: Regular backups of the WordPress installation
+5. **Monitoring**: Log monitoring for unusual activities
 
-## Code-Review Checkliste
+## Code review checklist
 
-- [x] Alle Eingaben sanitisiert
-- [x] Alle Ausgaben escaped
-- [x] Nonces für alle Formulare
-- [x] Capability-Checks für Admin-Funktionen
-- [x] Prepared Statements für SQL
-- [x] Error-Handling implementiert
-- [x] Keine Direct File Access
-- [x] WordPress Coding Standards eingehalten
-- [x] PHPDoc für alle öffentlichen Methoden
-- [x] Keine hardkodierten Credentials
-- [x] Keine sensitive Daten in Logs
-- [x] Performance optimiert (Caching)
-- [x] Browser-kompatibel
-- [x] Responsive Design
-- [x] Accessibility-Standards erfüllt
+- [x] All inputs sanitized
+- [x] All editions escaped
+- [x] Nonces for all forms
+- [x] Capability checks for admin functions
+- [x] Prepared Statements for SQL
+- [x] Error handling implemented
+- [x] No Direct File Access
+- [x] WordPress coding standards complied with
+- [x] PHPDoc for all public methods
+- [x] No hardcoded credentials
+- [x] No sensitive data in logs
+- [x] Performance optimized (caching)
+- [x] Browser compatible
+- [x] Responsive design
+- [x] Accessibility standards met
 
-## Bekannte Einschränkungen
+## Known limitations
 
-1. **Video-Suche per Nummer**: Sucht maximal 500 Videos (Performance)
-2. **API-Abhängigkeit**: Funktioniert nur bei erreichbarer PeerTube-API
-3. **Keine Authentifizierung**: Nur öffentliche Videos werden unterstützt
-4. **Cache-Invalidierung**: Manuell über Admin-Panel
+1. **Video search by number**: Searches a maximum of 500 videos (performance)
+2. **API dependency**: Works only when PeerTube API is reachable
+3. **No Authentication**: Only public videos are supported
+4. **Cache Invalidation**: Manually via admin panel
 
-## Meldung von Sicherheitsproblemen
+## Report security issues
 
-Wenn Sie ein Sicherheitsproblem finden:
+If you find a security issue:
 
-1. **NICHT** als öffentliches Issue erstellen
-2. Kontaktieren Sie die Entwickler direkt
-3. Geben Sie detaillierte Informationen:
-   - Beschreibung des Problems
-   - Schritte zur Reproduktion
-   - Potenzielle Auswirkungen
-   - Vorgeschlagene Lösung (optional)
+1. **DO NOT** create a public issue
+2. Contact the developers directly
+3. Provide detailed information:
+   - Description of the problem
+   - Reproduction steps
+   - Potential impact
+   - Suggested solution (optional)
 
-## Version und Datum
+## Version and date
 
 - **Version**: 1.0.0
-- **Letzter Security-Review**: 2025-01-01
-- **Nächster geplanter Review**: 2025-07-01
+- **Last security review**: 2025-01-01
+- **Next scheduled review**: 2025-07-01
 
 ## Compliance
 
 ### Standards
 
-- ✓ OWASP Top 10 berücksichtigt
-- ✓ WordPress Plugin Guidelines erfüllt
-- ✓ GPL v2+ Lizenz
-- ✓ DSGVO-konform (keine personenbezogenen Daten)
+- ✓ OWASP Top 10 taken into account
+- ✓ WordPress plugin guidelines met
+- ✓ GPL v2+ license
+- ✓ GDPR compliant (no personal data)
 
-### Audit-Trail
+### Audit trail
 
-- Initial Security Review: 2025-01-01 - Keine kritischen Probleme gefunden
-- Code Quality Check: 2025-01-01 - Standards eingehalten
-- Performance Test: 2025-01-01 - Optimiert mit Caching
+- Initial Security Review: 2025-01-01 - No critical issues found
+- Code Quality Check: 2025-01-01 - Standards complied with
+- Performance Test: 2025-01-01 - Optimized with caching
 
 ---
 
 **Status: APPROVED FOR PRODUCTION** ✓
 
-Dieses Plugin wurde gründlich auf Sicherheit, Code-Qualität und Performance geprüft und ist bereit für den produktiven Einsatz.
-
+This plugin has been thoroughly tested for security, code quality and performance and is ready for productive use.

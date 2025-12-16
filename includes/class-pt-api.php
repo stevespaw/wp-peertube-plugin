@@ -46,7 +46,7 @@ class PT_API {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		$this->base_url = rtrim( get_option( 'pt_vm_base_url', 'https://lokalmedial.de' ), '/' );
+		$this->base_url = rtrim( get_option( 'pt_vm_base_url', 'https://video3.cappital.co' ), '/' );
 		$this->cache    = new PT_Cache();
 	}
 
@@ -598,7 +598,7 @@ class PT_API {
 				'success' => true,
 				'message' => sprintf(
 					/* translators: %s: instance name */
-					__( 'Verbindung erfolgreich! Instanz: %s', 'peertube-video-manager' ),
+					__( 'Connection successful! instance: %s', 'peertube-video-manager' ),
 					$config['instance']['name']
 				),
 			);
@@ -606,7 +606,7 @@ class PT_API {
 		
 		return array(
 			'success' => false,
-			'message' => __( 'Verbindung fehlgeschlagen. Bitte überprüfen Sie die URL.', 'peertube-video-manager' ),
+			'message' => __( 'Connection failed. Please check the URL.', 'peertube-video-manager' ),
 		);
 	}
 }

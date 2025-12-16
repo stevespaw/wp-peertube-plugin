@@ -42,11 +42,11 @@
 					}
 				},
 				error: function() {
-					$result.html('<span class="error">✗ Fehler beim Testen der Verbindung.</span>')
+					$result.html('<span class="error">✗ Error testing connection.</span>')
 						   .addClass('error');
 				},
 				complete: function() {
-					$button.prop('disabled', false).text('Verbindung testen');
+					$button.prop('disabled', false).text('Test connection');
 				}
 			});
 		});

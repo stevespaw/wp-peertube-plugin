@@ -57,7 +57,7 @@
 		if ($('.pt-video-modal').length === 0) {
 			var modalHtml = '<div class="pt-video-modal">' +
 				'<div class="pt-video-modal-content">' +
-				'<button class="pt-video-modal-close" aria-label="Schließen">&times;</button>' +
+				'<button class="pt-video-modal-close" aria-label="Close">&times;</button>' +
 				'<div class="pt-video-modal-player"></div>' +
 				'</div>' +
 				'</div>';
