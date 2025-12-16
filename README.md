@@ -6,7 +6,10 @@
 
 A WordPress plugin to integrate PeerTube videos with shortcodes. Displays videos, channels, search and custom metadata including send responsibility.
 
-**Repository:** [https://github.com/yarkolife/wp-peertube-plugin](https://github.com/yarkolife/wp-peertube-plugin)
+**Original Repository:** [https://github.com/yarkolife/wp-peertube-plugin](https://github.com/yarkolife/wp-peertube-plugin)
+**English Version Repository:** [https://github.com/stevespaw/wp-peertube-plugin](https://github.com/stevespaw/wp-peertube-plugin)
+
+## This fork may become obsolete if the Original German version gets an English Translation. 
 
 ## Features
 
@@ -28,7 +31,7 @@ A WordPress plugin to integrate PeerTube videos with shortcodes. Displays videos
 
 ### About WordPress Admin
 
-1. Download the [ZIP file](https://github.com/yarkolife/wp-peertube-plugin/releases/latest).
+1. Download the [ZIP file](https://github.com/stevespaw/wp-peertube-plugin/releases/latest).
 2. Go to `Plugins > Install > Upload Plugin`
 3. Select the ZIP file
 4. Click “Install Now”
@@ -38,7 +41,7 @@ A WordPress plugin to integrate PeerTube videos with shortcodes. Displays videos
 
 ```bash
 cd wp-content/plugins/
-git clone https://github.com/yarkolife/wp-peertube-plugin.git peertube-video-manager
+git clone https://github.com/stevespaw/wp-peertube-plugin.git peertube-video-manager
 ```
 
 ### Manually
@@ -50,7 +53,7 @@ git clone https://github.com/yarkolife/wp-peertube-plugin.git peertube-video-man
 
 Once activated, go to `Settings > PeerTube Videos`:
 
-- **PeerTube instance URL**: The URL of your PeerTube instance (e.g. `https://lokalmedial.de`)
+- **PeerTube instance URL**: The URL of your PeerTube instance (e.g. `https://video3.cappital.co`)
 - **Standard Channels**: List of channel handles (one per line)
 - **Cache Times**: How long data is cached
 - **Videos per page**: Default number of videos displayed
@@ -268,19 +271,21 @@ add_action('pt_vm_cache_cleared', function() {
 
 If you have any questions or problems:
 
-1. Check the [Documentation](docs/USAGE_DE.md)
+1. Check the [Documentation](docs/USAGE_EN.md)
 2. Enable WP_DEBUG for detailed errors
-3. Create an [Issue on GitHub](https://github.com/yarkolife/wp-peertube-plugin/issues)
+3. Create an [Issue on GitHub](https://github.com/stevespaw/wp-peertube-plugin/issues)
 
 ## Contribute
 
 Contributions are welcome! Please:
 
-1. Fork the [repository](https://github.com/yarkolife/wp-peertube-plugin)
+1. Fork the Original [repository](https://github.com/yarkolife/wp-peertube-plugin)
+    a. Fork the English [repository](https://github.com/stevespaw/wp-peertube-plugin)
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a [Pull Request](https://github.com/yarkolife/wp-peertube-plugin/pulls)
+    a. Open an English [Pull Request](https://github.com/stevespaw/wp-peertube-plugin/pulls)
 
 ## License
 
