@@ -7,6 +7,7 @@
 A WordPress plugin to integrate PeerTube videos with shortcodes. Displays videos, channels, search and custom metadata including send responsibility.
 
 **Original Repository:** [https://github.com/yarkolife/wp-peertube-plugin](https://github.com/yarkolife/wp-peertube-plugin)
+
 **English Version Repository:** [https://github.com/stevespaw/wp-peertube-plugin](https://github.com/stevespaw/wp-peertube-plugin)
 
 ## This fork may become obsolete if the Original German version gets an English Translation. 
