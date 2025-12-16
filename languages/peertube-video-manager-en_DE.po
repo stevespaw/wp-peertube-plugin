@@ -1,0 +1,271 @@
+# German translation for PeerTube Video Manager
+# Copyright (C) 2025
+# This file is distributed under the same license as the PeerTube Video Manager plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: PeerTube Video Manager 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 12:00+0000\n"
+"PO-Revision-Date: 2025-01-01 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: en_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/class-pt-formatter.php
+msgid "In the future"
+msgstr "In der Zukunft"
+
+msgid "Just now"
+msgstr "Gerade eben"
+
+msgid "1 minute ago"
+msgstr "Vor 1 Minute"
+
+#, c-format
+msgid "%d minutes ago"
+msgstr "Vor %d Minuten"
+
+msgid "1 hour ago"
+msgstr "Vor 1 Stunde"
+
+#, c-format
+msgid "%d hours ago"
+msgstr "Vor %d Stunden"
+
+msgid "1 day ago"
+msgstr "Vor 1 Tag"
+
+#, c-format
+msgid "%d days ago"
+msgstr "Vor %d Tagen"
+
+msgid "1 week ago"
+msgstr "Vor 1 Woche"
+
+#, c-format
+msgid "%d weeks ago"
+msgstr "Vor %d Wochen"
+
+msgid "1 month ago"
+msgstr "Vor 1 Monat"
+
+#, c-format
+msgid "%d months ago"
+msgstr "Vor %d Monaten"
+
+msgid "1 year ago"
+msgstr "Vor 1 Jahr"
+
+#, c-format
+msgid "%d years ago"
+msgstr "Vor %d Jahren"
+
+#, c-format
+msgid "%s Views"
+msgstr "%s Aufruf"
+
+#, c-format
+msgid "%s Views"
+msgstr "%s Aufrufe"
+
+#: includes/class-pt-api.php
+#, c-format
+msgid "Connection successful! Instance: %s"
+msgstr "Verbindung erfolgreich! Instanz: %s"
+
+msgid "Connection failed. Please check the URL."
+msgstr "Verbindung fehlgeschlagen. Bitte überprüfen Sie die URL."
+
+#: includes/class-pt-settings.php
+msgid "PeerTube Video Manager"
+msgstr "PeerTube Video Manager"
+
+msgid "PeerTube Videos"
+msgstr "PeerTube Videos"
+
+msgid "Please enter a valid URL (http:// or https://)."
+msgstr "Bitte geben Sie eine gültige URL ein (http:// oder https://)."
+
+msgid "PeerTube instance URL"
+msgstr "PeerTube Instanz URL"
+
+msgid "The full URL of your PeerTube instance (e.g., https://lokalmedial.de)"
+msgstr "Die vollständige URL Ihrer PeerTube-Instanz (z.B. https://lokalmedial.de)"
+
+msgid "Test connection"
+msgstr "Verbindung testen"
+
+msgid "Standard channels"
+msgstr "Standard-Kanäle"
+
+msgid "List of channel handles, one per line (e.g., ok_dessau, ok_magdeburg). Used for [pt-latest-per-channel] if no channels attribute is specified."
+msgstr "Liste der Kanal-Handles, einen pro Zeile (z.B. ok_dessau, ok_magdeburg). Wird für [pt-latest-per-channel] verwendet, wenn kein channels-Attribut angegeben ist."
+
+msgid "Cache time for videos (minutes)"
+msgstr "Cache-Zeit für Videos (Minuten)"
+
+msgid "How long video lists are cached (default: 5 minutes)"
+msgstr "Wie lange Video-Listen zwischengespeichert werden (Standard: 5 Minuten)"
+
+msgid "Cache time for configuration (hours)"
+msgstr "Cache-Zeit für Konfiguration (Stunden)"
+
+msgid "How long categories and configurations are cached (default: 24 hours)"
+msgstr "Wie lange Kategorien und Konfiguration zwischengespeichert werden (Standard: 24 Stunden)"
+
+msgid "Videos per page"
+msgstr "Videos pro Seite"
+
+msgid "Standard number of videos to be displayed (default: 8)"
+msgstr "Standard-Anzahl von Videos, die angezeigt werden (Standard: 8)"
+
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+msgid "Cache management"
+msgstr "Cache-Verwaltung"
+
+msgid "Clear your cache to load updated data from PeerTube."
+msgstr "Löschen Sie den Cache, um aktualisierte Daten von PeerTube zu laden."
+
+msgid "Clear cache"
+msgstr "Cache löschen"
+
+msgid "Shortcode examples"
+msgstr "Shortcode-Beispiele"
+
+msgid "Latest videos from this instance"
+msgstr "Letzte Videos der Instanz"
+
+msgid "One video per channel"
+msgstr "Je ein Video pro Kanal"
+
+msgid "Videos from a channel"
+msgstr "Videos eines Kanals"
+
+msgid "Single video with details"
+msgstr "Einzelnes Video mit Details"
+
+msgid "Video by video number"
+msgstr "Video per Video-Nummer"
+
+msgid "Search form"
+msgstr "Suchformular"
+
+msgid "Suchergebnisse"
+msgstr "Suchergebnisse"
+
+msgid "You do not have permission to perform this action."
+msgstr "Sie haben keine Berechtigung für diese Aktion."
+
+#, c-format
+msgid "Cache cleared! %d entries have been deleted."
+msgstr "Cache geleert! %d Einträge wurden gelöscht."
+
+msgid "No authorization."
+msgstr "Keine Berechtigung."
+
+msgid "No URL specified."
+msgstr "Keine URL angegeben."
+
+#: shortcodes/
+msgid "No videos found."
+msgstr "Keine Videos gefunden."
+
+msgid "No channels specified. Please use the channels attribute or configure default channels in the settings."
+msgstr "Keine Kanäle angegeben. Bitte verwenden Sie das channels-Attribut oder konfigurieren Sie Standard-Kanäle in den Einstellungen."
+
+msgid "No valid channels found."
+msgstr "Keine gültigen Kanäle gefunden."
+
+msgid "Please specify a channel using the channel attribute."
+msgstr "Bitte geben Sie einen Kanal mit dem channel-Attribut an."
+
+#, c-format
+msgid "No videos found in channel "%s"."
+msgstr "Keine Videos im Kanal \"%s\" gefunden."
+
+msgid "Please provide a video ID (id) or video number (number)."
+msgstr "Bitte geben Sie eine Video-ID (id) oder Video-Nummer (number) an."
+
+#, c-format
+msgid "Video with video number "%s" not found."
+msgstr "Video mit Video-Nummer \"%s\" nicht gefunden."
+
+#, c-format
+msgid "Video with ID "%s" not found."
+msgstr "Video mit ID \"%s\" nicht gefunden."
+
+msgid "Search in the media library"
+msgstr "Suche in der Mediathek"
+
+msgid "Seek"
+msgstr "Suchen"
+
+msgid "Please enter a search term."
+msgstr "Bitte geben Sie einen Suchbegriff ein."
+
+#, c-format
+msgid "No results found for "%s"."
+msgstr "Keine Ergebnisse für \"%s\" gefunden."
+
+#, c-format
+msgid "%1$d results for "%2$s""
+msgstr "%1$d Ergebnisse für \"%2$s\""
+
+msgid "« Back"
+msgstr "&laquo; Zurück"
+
+msgid "Next &raquo;"
+msgstr "Weiter &raquo;"
+
+#: templates/
+msgid "length"
+msgstr "Länge"
+
+msgid "category"
+msgstr "Kategorie"
+
+msgid "Published"
+msgstr "Veröffentlicht"
+
+msgid "Views"
+msgstr "Aufrufe"
+
+msgid "Broadcasting responsibility"
+msgstr "Sendeverantwortung"
+
+msgid "Video number"
+msgstr "Video-Nummer"
+
+msgid "Length:"
+msgstr "Länge:"
+
+msgid "Category:"
+msgstr "Kategorie:"
+
+msgid "Published:"
+msgstr "Veröffentlicht:"
+
+msgid "Views:"
+msgstr "Aufrufe:"
+
+msgid "Broadcasting responsibility:"
+msgstr "Sendeverantwortung:"
+
+msgid "Video number:"
+msgstr "Video-Nummer:"
+
+msgid "Tags:"
+msgstr "Tags:"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Watch on PeerTube"
+msgstr "Auf PeerTube ansehen"
+
