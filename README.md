@@ -82,7 +82,7 @@ Displays the latest video from each channel.
 **Examples:**
 ```
 [pt-latest-per-channel]
-[pt-latest-per-channel channels="ok_dessau,ok_magdeburg,okmq"]
+[pt-latest-per-channel channels="my_channel,joe_channel,okmq"]
 ```
 
 If no `channels` attribute is specified, the plugin will use the default channels from the settings.
@@ -98,7 +98,7 @@ Shows videos from a specific channel.
 **Examples:**
 ```
 [pt-channel-videos channel="okmq"]
-[pt-channel-videos channel="ok_dessau" count="10"]
+[pt-channel-videos channel="my_channel" count="10"]
 ```
 
 ### [pt video]

@@ -153,14 +153,14 @@ class PT_Formatter {
 		if ( $count === 1 ) {
 			return sprintf(
 				/* translators: %s: formatted number */
-				__( '%s Calls', 'peertube-video-manager' ),
+				__( '%s Views', 'peertube-video-manager' ),
 				$formatted
 			);
 		}
 		
 		return sprintf(
 			/* translators: %s: formatted number */
-			__( '%s Calls', 'peertube-video-manager' ),
+			__( '%s Views', 'peertube-video-manager' ),
 			$formatted
 		);
 	}

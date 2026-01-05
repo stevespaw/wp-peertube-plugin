@@ -26,10 +26,10 @@ View the latest video from each of your channels.
 1. Go to `Settings > PeerTube Videos`
 2. Add your channels under "Standard Channels":
 ```
-ok_dessau
-ok_magdeburg
-okmq
-ok_merseburg
+my_channel
+your_channel
+joe_channel
+ok_channel
 ```
 3. Create an “All Channels” page
 4. Paste this shortcode:
@@ -54,7 +54,7 @@ Create a separate page for each channel with all videos.
 <h1>OK Dessau - Open Canal Dessau</h1>
 <p>Here you can find all videos from the Dessau Open Channel.</p>
 
-[pt-channel-videos channel="ok_dessau" count="12"]
+[pt-channel-videos channel="my_channel" count="12"]
 ```
 
 Repeat this for each channel with the appropriate channel handle.
@@ -153,7 +153,7 @@ Use the "HTML" widget in your sidebar.
 
 ```html
 <h3>Latest Videos</h3>
-[pt-latest-per-channel channels="ok_dessau,ok_magdeburg"]
+[pt-latest-per-channel channels="my_channel,your_channel"]
 ```
 
 **Note:** Consider adjusting the CSS for a more compact display.
@@ -176,7 +176,7 @@ Create a "Video Archive 2024" page:
 <hr>
 
 <h2>OK Dessau</h2>
-[pt-channel-videos channel="ok_dessau" count="8"]
+[pt-channel-videos channel="my_channel" count="8"]
 
 <h2>OK Magdeburg</h2>
 [pt-channel-videos channel="ok_magdeburg" count="8"]
@@ -218,7 +218,7 @@ Regional News Page:
 
 ```
 <h1>Regional news</h1>
-[pt-latest-per-channel channels="ok_dessau,ok_magdeburg,ok_merseburg"]
+[pt-latest-per-channel channels="my_channel,your_channel,joe_channel"]
 ```
 
 ---

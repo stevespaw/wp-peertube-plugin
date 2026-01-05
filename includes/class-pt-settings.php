@@ -164,13 +164,13 @@ class PT_Settings {
 		register_setting( 'pt_vm_settings', 'pt_vm_wp_search_wp_option_text', array(
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => __( 'Auf der Webseite suchen', 'peertube-video-manager' ),
+			'default'           => __( 'Search on the website', 'peertube-video-manager' ),
 		) );
 
 		register_setting( 'pt_vm_settings', 'pt_vm_wp_search_peertube_option_text', array(
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => __( 'In Mediathek LokalMedial.de suchen', 'peertube-video-manager' ),
+			'default'           => __( 'Search in the media library ', 'peertube-video-manager' ),
 		) );
 	}
 
@@ -342,7 +342,7 @@ class PT_Settings {
 								   class="regular-text"
 								   required>
 							<p class="description">
-								<?php esc_html_e( 'The full URL of your MEdia Platform instance (e.g., https://video3.cappital.co)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'The full URL of your Media Platform instance (e.g., https://video3.cappital.co)', 'peertube-video-manager' ); ?>
 							</p>
 							<p>
 								<button type="button" id="pt-test-connection" class="button">
@@ -365,7 +365,7 @@ class PT_Settings {
 									  rows="5" 
 									  class="large-text"><?php echo esc_textarea( $default_channels ); ?></textarea>
 							<p class="description">
-								<?php esc_html_e( 'List of channel handles, one per line (e.g., ok_dessau, ok_magdeburg). Used for [pt-latest-per-channel] when no channels attribute is specified.', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'List of channel handles, one per line (e.g., my_channel, your_channel). Used for [pt-latest-per-channel] when no channels attribute is specified.', 'peertube-video-manager' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -713,7 +713,7 @@ class PT_Settings {
 			
 			<hr>
 			
-			<h2><?php esc_html_e( 'Cache-Verwaltung', 'peertube-video-manager' ); ?></h2>
+			<h2><?php esc_html_e( 'Cache Management', 'peertube-video-manager' ); ?></h2>
 			<p><?php esc_html_e( 'Clear your cache to load updated data from PeerTube.', 'peertube-video-manager' ); ?></p>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<?php wp_nonce_field( 'pt_vm_clear_cache', 'pt_vm_cache_nonce' ); ?>
@@ -728,16 +728,16 @@ class PT_Settings {
 				<li><code>[pt-last-videos count="8"]</code> - <?php esc_html_e( 'Latest videos from this instance', 'peertube-video-manager' ); ?></li>
 				<li><code>[pt-last-videos count="8" columns="2"]</code> - <?php esc_html_e( 'Latest videos in 2 columns', 'peertube-video-manager' ); ?></li>
 				<li><code>[pt-last-videos count="8" columns="1"]</code> - <?php esc_html_e( 'Latest videos in a column', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-latest-per-channel channels="ok_dessau,ok_magdeburg"]</code> - <?php esc_html_e( 'One video per channel', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-latest-per-channel channels="ok_dessau,ok_magdeburg" columns="3"]</code> - <?php esc_html_e( 'One video per channel in 3 columns.', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-channel-videos channel="okmq" count="6"]</code> - <?php esc_html_e( 'Videos from a channel', 'peertube-video-manager' ); ?></li>
-				<li><code>[pt-channel-videos channel="okmq" count="6" columns="2"]</code> - <?php esc_html_e( 'Videos from a channel in 2 columns', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-latest-per-channel channels="my_channel,your_channel"]</code> - <?php esc_html_e( 'One video per channel', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-latest-per-channel channels="my_channel,your_channel" columns="3"]</code> - <?php esc_html_e( 'One video per channel in 3 columns.', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-channel-videos channel="my_channel" count="6"]</code> - <?php esc_html_e( 'Videos from a channel', 'peertube-video-manager' ); ?></li>
+				<li><code>[pt-channel-videos channel="my_channel" count="6" columns="2"]</code> - <?php esc_html_e( 'Videos from a channel in 2 columns', 'peertube-video-manager' ); ?></li>
 			<li><code>[pt-video id="UUID"]</code> - <?php esc_html_e( 'Single video with details', 'peertube-video-manager' ); ?></li>
 			<li><code>[pt-video number="123"]</code> - <?php esc_html_e( 'Video per Video Number', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-channels-ordered channels="ok_dessau,ok_magdeburg"]</code> - <?php esc_html_e( 'Channels with videos in the specified order', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-search placeholder="Suche..."]</code> - <?php esc_html_e( 'Search form (with WordPress integration)', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-channels-ordered channels="my_channel,your_channel"]</code> - <?php esc_html_e( 'Channels with videos in the specified order', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-search placeholder="Search..."]</code> - <?php esc_html_e( 'Search form (with WordPress integration)', 'peertube-video-manager' ); ?></li>
 			<li><code>[pt-search-results per_page="12"]</code> - <?php esc_html_e( 'Search results (supports WordPress parameter "s")', 'peertube-video-manager' ); ?></li>
-			<li><code>[pt-peertube-search placeholder="Suche..."]</code> - <?php esc_html_e( 'Search form for Media Platform only', 'peertube-video-manager' ); ?></li>
+			<li><code>[pt-peertube-search placeholder="Search..."]</code> - <?php esc_html_e( 'Search form for Media Platform only', 'peertube-video-manager' ); ?></li>
 			<li><code>[pt-peertube-search-results per_page="12"]</code> - <?php esc_html_e( 'Search results only for Media Platform (without WordPress integration)', 'peertube-video-manager' ); ?></li>
 			</ul>
 			<p class="description">
@@ -794,7 +794,7 @@ class PT_Settings {
 
 		// Create search page
 		$search_page_content = __( 'Search in the media library', 'peertube-video-manager' ) . "\n\n" .
-			'[pt-search placeholder="' . __( 'Suche...', 'peertube-video-manager' ) . '"]' . "\n\n" .
+			'[pt-search placeholder="' . __( 'Search...', 'peertube-video-manager' ) . '"]' . "\n\n" .
 			'[pt-search-results per_page="12"]';
 
 		$page_data = array(
@@ -802,7 +802,7 @@ class PT_Settings {
 			'post_content' => $search_page_content,
 			'post_status'  => 'publish',
 			'post_type'    => 'page',
-			'post_name'    => 'peertube-suche',
+			'post_name'    => 'peertube-search',
 		);
 
 		$search_page_id = wp_insert_post( $page_data );

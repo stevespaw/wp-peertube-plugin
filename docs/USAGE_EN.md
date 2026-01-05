@@ -25,7 +25,7 @@
 
 3. **Optional: Set up standard channels**
    - Enter channel handles in the "Standard Channels" text box
-   - One channel handle per line (e.g. `ok_dessau`, `ok_magdeburg`)
+   - One channel handle per line (e.g. `my_channel`, `your_channel`)
    - These are used for `[pt-latest-per-channel]` when no channels are specified
 
 ### Configuration options
@@ -33,16 +33,16 @@
 #### PeerTube instance URL
 The full URL of your PeerTube instance, without a trailing slash.
 
-**Example:** `https://lokalmedial.de`
+**Example:** `https://lokalmedial.com`
 
 #### Standard channels
 List of channel handles used by default. Enter each channel on a new line.
 
 **Example:**
 ```
-ok_dessau
-ok_magdeburg
-okmq
+my_channel
+your_channel
+joe_channel
 ```
 
 #### Cache time for videos
@@ -136,7 +136,7 @@ or
 
 **Specific Channels:**
 ```
-[pt-latest-per-channel channels="ok_dessau,ok_magdeburg,okmq"]
+[pt-latest-per-channel channels="my_channel,your_channel,cool_videos"]
 ```
 
 #### Notes
@@ -173,7 +173,7 @@ Displays multiple videos from a specific channel.
 
 **10 videos from OK Dessau:**
 ```
-[pt-channel-videos channel="ok_dessau" count="10"]
+[pt-channel-videos channel="my_channel" count="10"]
 ```
 
 #### Error messages
@@ -460,7 +460,7 @@ The plugin automatically respects these limits through caching.
 
 3. **Channel Pages:** Dedicated page per channel
    ```
-   [pt-channel-videos channel="ok_dessau" count="12"]
+   [pt-channel-videos channel="my_channel" count="12"]
    ```
 
 4. **Video Detail Pages:** Dynamic pages or posts

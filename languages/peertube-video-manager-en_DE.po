@@ -102,7 +102,7 @@ msgstr "Verbindung testen"
 msgid "Standard channels"
 msgstr "Standard-Kanäle"
 
-msgid "List of channel handles, one per line (e.g., ok_dessau, ok_magdeburg). Used for [pt-latest-per-channel] if no channels attribute is specified."
+msgid "List of channel handles, one per line (e.g., my_channel, your_channel). Used for [pt-latest-per-channel] if no channels attribute is specified."
 msgstr "Liste der Kanal-Handles, einen pro Zeile (z.B. ok_dessau, ok_magdeburg). Wird für [pt-latest-per-channel] verwendet, wenn kein channels-Attribut angegeben ist."
 
 msgid "Cache time for videos (minutes)"
@@ -126,7 +126,7 @@ msgstr "Standard-Anzahl von Videos, die angezeigt werden (Standard: 8)"
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
-msgid "Cache management"
+msgid "Cache Management"
 msgstr "Cache-Verwaltung"
 
 msgid "Clear your cache to load updated data from PeerTube."
@@ -156,7 +156,7 @@ msgstr "Video per Video-Nummer"
 msgid "Search form"
 msgstr "Suchformular"
 
-msgid "Suchergebnisse"
+msgid "Search results"
 msgstr "Suchergebnisse"
 
 msgid "You do not have permission to perform this action."
@@ -203,7 +203,7 @@ msgstr "Video mit ID \"%s\" nicht gefunden."
 msgid "Search in the media library"
 msgstr "Suche in der Mediathek"
 
-msgid "Seek"
+msgid "Search"
 msgstr "Suchen"
 
 msgid "Please enter a search term."
