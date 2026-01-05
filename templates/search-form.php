@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			   required>
 		<button type="submit" class="pt-search-button">
 			<span class="pt-search-icon">🔍</span>
-			<span class="pt-search-text"><?php esc_html_e( 'Seek', 'peertube-video-manager' ); ?></span>
+			<span class="pt-search-text"><?php esc_html_e( 'Search', 'peertube-video-manager' ); ?></span>
 		</button>
 	</div>
 </form>

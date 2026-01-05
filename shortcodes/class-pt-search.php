@@ -72,7 +72,7 @@ class PT_Search {
 					   value="<?php echo isset( $_GET['pt_search'] ) ? esc_attr( $_GET['pt_search'] ) : ''; ?>" 
 					   placeholder="<?php echo esc_attr( $placeholder ); ?>" 
 					   required>
-				<button type="submit"><?php esc_html_e( 'Seek', 'peertube-video-manager' ); ?></button>
+				<button type="submit"><?php esc_html_e( 'Search', 'peertube-video-manager' ); ?></button>
 			</form>
 			<?php
 		}
