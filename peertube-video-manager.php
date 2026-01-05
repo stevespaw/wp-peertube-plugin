@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: PeerTube Video Manager
- * Description: Integrate PeerTube videos into WordPress with shortcodes for displaying videos from PeerTube instances. Supports custom metadata including Sendeverantwortung.
+ * Description: Integrate PeerTube videos into WordPress with shortcodes for displaying videos from PeerTube instances. Supports custom metadata including Broadcast Responsibility/Accountability.
  * Version: 1.1.8
  * Author: Pavlo Kozakov
  * License: GPL v2 or later
