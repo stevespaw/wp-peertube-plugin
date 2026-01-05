@@ -19,7 +19,7 @@
 
 2. **Configure basic settings**
    - Go to `Settings > PeerTube Videos`
-   - Enter the URL of your PeerTube instance (e.g. `https://video3.cappital.co`)
+   - Enter the URL of your PeerTube instance (e.g. `https://lokalmedial.de`)
    - Click on "Test connection" to check the connection
    - Save settings
 
@@ -33,7 +33,7 @@
 #### PeerTube instance URL
 The full URL of your PeerTube instance, without a trailing slash.
 
-**Example:** `https://video3.cappital.co`
+**Example:** `https://lokalmedial.de`
 
 #### Standard channels
 List of channel handles used by default. Enter each channel on a new line.

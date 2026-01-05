@@ -713,7 +713,7 @@ class PT_Settings {
 			
 			<hr>
 			
-			<h2><?php esc_html_e( 'Cache-Management', 'peertube-video-manager' ); ?></h2>
+			<h2><?php esc_html_e( 'Cache-Verwaltung', 'peertube-video-manager' ); ?></h2>
 			<p><?php esc_html_e( 'Clear your cache to load updated data from PeerTube.', 'peertube-video-manager' ); ?></p>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<?php wp_nonce_field( 'pt_vm_clear_cache', 'pt_vm_cache_nonce' ); ?>
