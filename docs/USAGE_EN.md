@@ -232,7 +232,7 @@ Displays a single video with full description and embedded player.
   - Video number
 - All tags
 - Full description (HTML formatted)
-- “Watch on PeerTube” link
+- “Watch on Media Platform” link
 
 ---
 

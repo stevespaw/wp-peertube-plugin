@@ -266,6 +266,6 @@ msgstr "Tags:"
 msgid "Description"
 msgstr "Beschreibung"
 
-msgid "Watch on PeerTube"
+msgid "Watch on Media Platform"
 msgstr "Auf PeerTube ansehen"
 
