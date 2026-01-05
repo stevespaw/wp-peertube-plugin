@@ -342,7 +342,7 @@ class PT_Settings {
 								   class="regular-text"
 								   required>
 							<p class="description">
-								<?php esc_html_e( 'The full URL of your MEdia Platform instance (e.g., https://video3.cappital.co)', 'peertube-video-manager' ); ?>
+								<?php esc_html_e( 'The full URL of your Media Platform instance (e.g., https://video3.cappital.co)', 'peertube-video-manager' ); ?>
 							</p>
 							<p>
 								<button type="button" id="pt-test-connection" class="button">
